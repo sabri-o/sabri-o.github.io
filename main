@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merkez Al Ouloum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Amiri', serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        header {
+            background-color: #006d77;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #83c5be;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .intro h2 {
+            font-size: 2rem;
+            color: #006d77;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            max-width: 300px;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            color: #343a40;
+            margin: 1rem 0;
+        }
+        .card p {
+            padding: 0 1rem 1rem;
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Merkez Al Ouloum</h1>
+    </header>
+    <nav>
+        <a href="#about">À propos</a>
+        <a href="#courses">Cours</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section class="intro" id="about">
+            <h2>Bienvenue à Merkez Al Ouloum</h2>
+            <p>Apprenez l'arabe en ligne avec des enseignants qualifiés et des cours adaptés à tous les niveaux.</p>
+        </section>
+        <section class="cards" id="courses">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Cours débutants">
+                <h3>Cours Débutants</h3>
+                <p>Découvrez les bases de la langue arabe grâce à nos cours spécialement conçus pour les débutants.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Cours intermédiaires">
+                <h3>Cours Intermédiaires</h3>
+                <p>Perfectionnez vos connaissances en grammaire et vocabulaire arabe avec nos cours avancés.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Cours avancés">
+                <h3>Cours Avancés</h3>
+                <p>Atteignez la maîtrise de l'arabe grâce à des cours intensifs et pratiques.</p>
+            </div>
+        </section>
+    </div>
+    <footer id="contact">
+        <p>&copy; 2024 Merkez Al Ouloum. Tous droits réservés.</p>
+        <p>Contact : <a href="mailto:contact@merkezalouloum.com">contact@merkezalouloum.com</a></p>
+    </footer>
+</body>
+</html>
