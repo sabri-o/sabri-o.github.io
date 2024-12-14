@@ -3,35 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merkez Al Ouloum</title>
+    <title>Merkez Al 'Ouloum</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Amiri', serif;
-            background-color: #f8f9fa;
-            color: #343a40;
+            background-color: #121212;
+            color: #f8f9fa;
         }
         header {
-            background-color: #006d77;
-            color: white;
-            padding: 1rem 0;
+            background-color: #0b3d2e;
+            color: #f8f9fa;
+            padding: 1.5rem 0;
             text-align: center;
         }
+        header img {
+            width: 150px;
+            height: auto;
+        }
         header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+            margin: 1rem 0 0;
+            font-size: 2.8rem;
+            font-family: 'Amiri', serif;
         }
         nav {
             display: flex;
             justify-content: center;
-            background-color: #83c5be;
-            padding: 0.5rem 0;
+            background-color: #0f5132;
+            padding: 0.7rem 0;
         }
         nav a {
-            color: white;
+            color: #f8f9fa;
             text-decoration: none;
-            margin: 0 1rem;
+            margin: 0 1.5rem;
             font-size: 1.2rem;
         }
         nav a:hover {
@@ -42,44 +47,53 @@
             margin: 2rem auto;
             padding: 0 1rem;
         }
-        .intro {
-            text-align: center;
+        .section {
             margin-bottom: 2rem;
         }
-        .intro h2 {
+        h2 {
             font-size: 2rem;
-            color: #006d77;
+            color: #58a396;
+            text-align: center;
+            margin-bottom: 1rem;
         }
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
+        p, ul, li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        iframe {
+            display: block;
+            margin: 1rem auto;
         }
         .card {
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #1f1f1f;
             border-radius: 0.5rem;
-            overflow: hidden;
-            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
             text-align: center;
+            color: #f8f9fa;
+            margin: 1rem auto;
+            max-width: 400px;
         }
-        .card img {
-            width: 100%;
-            height: auto;
+        .button {
+            display: inline-block;
+            background-color: #0b3d2e;
+            color: #f8f9fa;
+            padding: 0.8rem 1.5rem;
+            margin-top: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
         }
-        .card h3 {
+        .button:hover {
+            background-color: #58a396;
+        }
+        .social-links a {
+            color: #58a396;
+            margin: 0 0.5rem;
             font-size: 1.5rem;
-            color: #343a40;
-            margin: 1rem 0;
-        }
-        .card p {
-            padding: 0 1rem 1rem;
-            font-size: 1rem;
-            color: #6c757d;
         }
         footer {
-            background-color: #343a40;
+            background-color: #0b3d2e;
             color: white;
             text-align: center;
             padding: 1rem 0;
@@ -88,40 +102,75 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Merkez Al Ouloum</h1>
+        <img src="logoMerkez.jpg" alt="Logo Merkez Al 'Ouloum">
+        <h1>Merkez Al 'Ouloum</h1>
     </header>
+
+    <!-- Navigation -->
     <nav>
-        <a href="#about">À propos</a>
-        <a href="#courses">Cours</a>
-        <a href="#contact">Contact</a>
+        <a href="#presentation">Présentation</a>
+        <a href="#enseignant">L'Enseignant</a>
+        <a href="#cursus">Cursus</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#inscription">Inscription</a>
     </nav>
+
+    <!-- Main Content -->
     <div class="container">
-        <section class="intro" id="about">
-            <h2>Bienvenue à Merkez Al Ouloum</h2>
-            <p>Apprenez l'arabe en ligne avec des enseignants qualifiés et des cours adaptés à tous les niveaux.</p>
+        <!-- Présentation -->
+        <section class="section" id="presentation">
+            <h2>Vidéo de Présentation</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="Présentation des cours" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </section>
-        <section class="cards" id="courses">
+
+        <!-- L'Enseignant -->
+        <section class="section" id="enseignant">
+            <h2>Présentation de l'Enseignant</h2>
             <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Cours débutants">
-                <h3>Cours Débutants</h3>
-                <p>Découvrez les bases de la langue arabe grâce à nos cours spécialement conçus pour les débutants.</p>
+                <p>Diplômé de l'Université Islamique de Médine, l'enseignant propose des cours adaptés à tous les niveaux pour apprendre la langue arabe de manière rigoureuse et progressive.</p>
             </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Cours intermédiaires">
-                <h3>Cours Intermédiaires</h3>
-                <p>Perfectionnez vos connaissances en grammaire et vocabulaire arabe avec nos cours avancés.</p>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Cours avancés">
-                <h3>Cours Avancés</h3>
-                <p>Atteignez la maîtrise de l'arabe grâce à des cours intensifs et pratiques.</p>
-            </div>
+        </section>
+
+        <!-- Cursus -->
+        <section class="section" id="cursus">
+            <h2>Les Cursus Proposés</h2>
+            <ul>
+                <li><strong>Niveau Débutant :</strong> Alphabétisation et bases de la grammaire arabe.</li>
+                <li><strong>Niveau Intermédiaire :</strong> Études approfondies de la grammaire (Nahw) et du vocabulaire.</li>
+                <li><strong>Niveau Avancé :</strong> Maîtrise des textes classiques et compréhension avancée.</li>
+            </ul>
+        </section>
+
+        <!-- Tarifs -->
+        <section class="section" id="tarifs">
+            <h2>Tarifs</h2>
+            <p>Tarifs accessibles avec des formules adaptées :</p>
+            <ul>
+                <li>30€ / mois pour les cours en groupe.</li>
+                <li>50€ / mois pour les cours individuels.</li>
+            </ul>
+        </section>
+
+        <!-- Formulaire d'Inscription -->
+        <section class="section" id="inscription">
+            <h2>Inscrivez-vous dès maintenant</h2>
+            <p>Pour vous inscrire, remplissez le formulaire ci-dessous :</p>
+            <iframe src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Chargement...</iframe>
+            <a href="#" class="button">Je m'inscris</a>
         </section>
     </div>
-    <footer id="contact">
-        <p>&copy; 2024 Merkez Al Ouloum. Tous droits réservés.</p>
-        <p>Contact : <a href="mailto:contact@merkezalouloum.com">contact@merkezalouloum.com</a></p>
+
+    <!-- Réseaux sociaux -->
+    <footer>
+        <div class="social-links">
+            <p>Suivez-nous :</p>
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">YouTube</a>
+        </div>
+        <p>&copy; 2024 Merkez Al 'Ouloum. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
