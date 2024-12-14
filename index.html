@@ -1,9 +1,11 @@
+/* Multi-page structure with more precision */
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merkez Al 'Ouloum</title>
+    <title>Accueil - Merkez Al 'Ouloum</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <style>
         body {
@@ -14,90 +16,68 @@
         }
         header {
             background-color: #0b3d2e;
-            color: #f8f9fa;
-            padding: 1.5rem 0;
+            color: white;
             text-align: center;
+            padding: 2rem 1rem;
         }
         header img {
-            width: 150px;
+            max-width: 100px;
             height: auto;
         }
         header h1 {
-            margin: 1rem 0 0;
+            margin: 1rem 0;
             font-size: 2.8rem;
-            font-family: 'Amiri', serif;
         }
         nav {
             display: flex;
             justify-content: center;
             background-color: #0f5132;
-            padding: 0.7rem 0;
+            padding: 0.5rem;
         }
         nav a {
-            color: #f8f9fa;
+            color: white;
             text-decoration: none;
-            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
             font-size: 1.2rem;
         }
         nav a:hover {
-            text-decoration: underline;
+            background-color: #58a396;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
-        .section {
+        section {
             margin-bottom: 2rem;
         }
         h2 {
-            font-size: 2rem;
-            color: #58a396;
+            font-size: 2.4rem;
             text-align: center;
+            color: #58a396;
             margin-bottom: 1rem;
         }
-        p, ul, li {
-            font-size: 1.1rem;
+        p, li {
+            font-size: 1.2rem;
             line-height: 1.8;
-        }
-        iframe {
-            display: block;
-            margin: 1rem auto;
-        }
-        .card {
-            background-color: #1f1f1f;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            padding: 1.5rem;
-            text-align: center;
-            color: #f8f9fa;
-            margin: 1rem auto;
-            max-width: 400px;
         }
         .button {
             display: inline-block;
             background-color: #0b3d2e;
-            color: #f8f9fa;
+            color: white;
             padding: 0.8rem 1.5rem;
-            margin-top: 1rem;
             text-decoration: none;
-            font-weight: bold;
             border-radius: 5px;
+            margin-top: 1rem;
         }
         .button:hover {
             background-color: #58a396;
-        }
-        .social-links a {
-            color: #58a396;
-            margin: 0 0.5rem;
-            font-size: 1.5rem;
         }
         footer {
             background-color: #0b3d2e;
             color: white;
             text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
+            padding: 1.5rem;
         }
     </style>
 </head>
@@ -110,67 +90,34 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#presentation">Présentation</a>
-        <a href="#enseignant">L'Enseignant</a>
-        <a href="#cursus">Cursus</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#inscription">Inscription</a>
+        <a href="index.html">Accueil</a>
+        <a href="enseignant.html">Enseignant</a>
+        <a href="cursus.html">Cursus</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="inscription.html">Inscription</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Présentation -->
-        <section class="section" id="presentation">
-            <h2>Vidéo de Présentation</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="Présentation des cours" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <section>
+            <h2>Bienvenue au Merkez Al 'Ouloum</h2>
+            <p>
+                Découvrez notre centre d'apprentissage de la langue arabe avec des cours en ligne structurés pour tous les niveaux.
+                Rejoignez-nous pour apprendre l'arabe de manière progressive avec un enseignant diplômé.
+            </p>
+            <a href="inscription.html" class="button">Inscrivez-vous maintenant</a>
         </section>
 
-        <!-- L'Enseignant -->
-        <section class="section" id="enseignant">
-            <h2>Présentation de l'Enseignant</h2>
-            <div class="card">
-                <p>Diplômé de l'Université Islamique de Médine, l'enseignant propose des cours adaptés à tous les niveaux pour apprendre la langue arabe de manière rigoureuse et progressive.</p>
-            </div>
-        </section>
-
-        <!-- Cursus -->
-        <section class="section" id="cursus">
-            <h2>Les Cursus Proposés</h2>
-            <ul>
-                <li><strong>Niveau Débutant :</strong> Alphabétisation et bases de la grammaire arabe.</li>
-                <li><strong>Niveau Intermédiaire :</strong> Études approfondies de la grammaire (Nahw) et du vocabulaire.</li>
-                <li><strong>Niveau Avancé :</strong> Maîtrise des textes classiques et compréhension avancée.</li>
-            </ul>
-        </section>
-
-        <!-- Tarifs -->
-        <section class="section" id="tarifs">
-            <h2>Tarifs</h2>
-            <p>Tarifs accessibles avec des formules adaptées :</p>
-            <ul>
-                <li>30€ / mois pour les cours en groupe.</li>
-                <li>50€ / mois pour les cours individuels.</li>
-            </ul>
-        </section>
-
-        <!-- Formulaire d'Inscription -->
-        <section class="section" id="inscription">
-            <h2>Inscrivez-vous dès maintenant</h2>
-            <p>Pour vous inscrire, remplissez le formulaire ci-dessous :</p>
-            <iframe src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Chargement...</iframe>
-            <a href="#" class="button">Je m'inscris</a>
+        <section>
+            <h2>Présentation en Vidéo</h2>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
         </section>
     </div>
 
-    <!-- Réseaux sociaux -->
+    <!-- Footer -->
     <footer>
-        <div class="social-links">
-            <p>Suivez-nous :</p>
-            <a href="#" target="_blank">Facebook</a>
-            <a href="#" target="_blank">Instagram</a>
-            <a href="#" target="_blank">YouTube</a>
-        </div>
-        <p>&copy; 2024 Merkez Al 'Ouloum. Tous droits réservés.</p>
+        <p>&copy; 2024 Merkez Al 'Ouloum | Tous droits réservés</p>
     </footer>
 </body>
 </html>
