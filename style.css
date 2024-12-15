@@ -85,6 +85,12 @@ footer {
     will-change: transform; /* Améliore les performances */
 }
 
+#carouselTrack {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+
 .carousel img {
     width: 100%; /* Chaque image occupe 100% de l'espace du conteneur */
     flex-shrink: 0; /* Empêche les images de rétrécir */
