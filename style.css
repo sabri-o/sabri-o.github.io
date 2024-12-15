@@ -64,26 +64,50 @@ footer {
 }
 
 
-.gallery {
-  overflow: hidden;
-  position: relative;
+
+/* Carousel Section */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
 }
 
-.gallery-inner {
-  white-space: nowrap;
-  transition: transform 0.5s ease-in-out;
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
-.gallery img {
-  display: inline-block;
+.carousel img {
+    min-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  /* ... autres styles pour positionner les flèches ... */
+/* Navigation Arrows */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    z-index: 10;
 }
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
+
 
 @media (min-width: 768px) { /* Pour les écrans plus larges que 768px (tablettes et ordinateurs) */
   iframe {
