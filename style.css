@@ -88,6 +88,12 @@ footer {
     margin-top: 2rem;
 }
 
+@media (min-width: 768px) { /* Pour les écrans plus larges que 768px (tablettes et ordinateurs) */
+  iframe {
+    width: 80%;
+    height: 450px;
+  }
+}
 
 @media (max-width: 768px) {
     /*styles pour les écrans de moins de 768px (tablettes et mobiles)*/
@@ -99,10 +105,11 @@ footer {
         font-size: 0.7rem;
     }
 
-     iframe {
-         width="280";
-         height="157.5";
-     }
+    iframe {
+        width: 100%;
+        height: 250px;
+    }
 }
+
 
 
