@@ -1,54 +1,232 @@
+/* Multi-page structure with enhanced mobile and carousel support */
+
+/* General CSS - styles.css */
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Amiri', serif;
+    background-color: #121212;
+    color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #0b3d2e;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header img {
+    max-width: 100px;
+    height: auto;
+}
+
+header h1 {
+    margin: 1rem 0;
+    font-size: 2.8rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #0f5132;
+    padding: 0.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+}
+
+nav a:hover {
+    background-color: #58a396;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+    text-align: center;
+    color: #58a396;
+    margin-bottom: 1rem;
+}
+
+p, li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.button {
+    display: inline-block;
+    background-color: #0b3d2e;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    background-color: #58a396;
+}
+
+footer {
+    background-color: #0b3d2e;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Carousel Section */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    min-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Navigation Arrows */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    z-index: 10;
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    nav a {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* avis.html - Code */
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avis - Merkez Al 'Ouloum</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <img src="logoMerkez.jpg" alt="Logo Merkez Al 'Ouloum">
         <h1>Merkez Al 'Ouloum</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="enseignant.html">Enseignant</a>
-            <a href="cursus.html">Cursus</a>
-            <a href="tarifs.html">Tarifs</a>
-            <a href="inscription.html">Inscription</a>
-            <a href="avis.html" class="active">Avis</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
+    
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="enseignant.html">Enseignant</a>
+        <a href="cursus.html">Cursus</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="inscription.html">Inscription</a>
+        <a href="avis.html">Avis</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-    <!-- Main Content -->
-    <main>
-        <h2>Avis de nos étudiants</h2>
-        <div class="carousel">
-            <button class="carousel-button left">&#8249;</button>
-            <div class="carousel-track-container">
+    <div class="container">
+        <section>
+            <h2>Les Avis des Étudiants</h2>
+            <div class="carousel">
+                <button class="carousel-button left">&#8249;</button>
                 <div class="carousel-track" id="carouselTrack">
-                    <a href="https://ibb.co/47dFMnx"><img src="https://i.ibb.co/wRsdCF1/avis1.jpg" alt="avis1" border="0"></a>
-                    <a href="https://ibb.co/4Z6J5S9"><img src="https://i.ibb.co/QF2X1Hz/avis2.jpg" alt="avis2" border="0"></a>
-                    <a href="https://ibb.co/VYL7LZJ"><img src="https://i.ibb.co/23FDFQW/avis3.jpg" alt="avis3" border="0"></a>
-                    <a href="https://ibb.co/Xj9tMvK"><img src="https://i.ibb.co/YP6hwq1/avis4.jpg" alt="avis4" border="0"></a>
-                    <a href="https://ibb.co/hZP1Cn8"><img src="https://i.ibb.co/dLdJ73K/avis5.jpg" alt="avis5" border="0"></a>
-                    <a href="https://ibb.co/jTTzr5x"><img src="https://i.ibb.co/PNNM6Yb/avis6.jpg" alt="avis6" border="0"></a>
-                    <a href="https://ibb.co/R0g55sv"><img src="https://i.ibb.co/DC1qqvV/avis7.jpg" alt="avis7" border="0"></a>
-                    <a href="https://ibb.co/WK0jy4Q"><img src="https://i.ibb.co/SvcGn42/avis8.jpg" alt="avis8" border="0"></a>
+                    <img src="image1.jpg" alt="Avis 1">
+                    <img src="image2.jpg" alt="Avis 2">
+                    <img src="image3.jpg" alt="Avis 3">
+                    <img src="image4.jpg" alt="Avis 4">
+                    <img src="image5.jpg" alt="Avis 5">
                 </div>
+                <button class="carousel-button right">&#8250;</button>
             </div>
-            <button class="carousel-button right">&#8250;</button>
-        </div>
-    </main>
+        </section>
+    </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Merkez Al 'Ouloum | Tous droits réservés</p>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="carousel.js"></script>
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const prevButton = document.querySelector('.carousel-button.left');
+        const nextButton = document.querySelector('.carousel-button.right');
+        const images = document.querySelectorAll('.carousel img');
+        let index = 0;
+        const imageCount = images.length;
+        const displayTime = 10000; // 10 seconds per image
+
+        // Function to move to the next slide
+        function moveToNext() {
+            index = (index + 1) % imageCount;
+            updateCarousel();
+        }
+
+        // Function to move to the previous slide
+        function moveToPrev() {
+            index = (index - 1 + imageCount) % imageCount;
+            updateCarousel();
+        }
+
+        // Function to update the carousel position
+        function updateCarousel() {
+            const translateX = -index * 100;
+            track.style.transform = translateX(${translateX}%);
+        }
+
+        // Auto-scroll every 10 seconds
+        setInterval(moveToNext, displayTime);
+
+        // Event listeners for manual navigation
+        nextButton.addEventListener('click', moveToNext);
+        prevButton.addEventListener('click', moveToPrev);
+    </script>
 </body>
 </html>
