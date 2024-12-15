@@ -13,11 +13,6 @@ header {
     padding: 2rem 1rem;
 }
 
-header img {
-    max-width: 50px;
-    height: auto;
-}
-
 nav {
     display: flex;
     justify-content: center;
@@ -93,6 +88,11 @@ footer {
         line-height: 1.8;
         text-align: center;
     }
+
+    header img {
+        max-width: 200px;
+        height: auto;
+    }
 }
 
 @media (max-width: 768px) {
@@ -126,6 +126,11 @@ footer {
         font-size: 0.7rem;
         line-height: 1.2;
         text-align: center;
+    }
+
+    header img {
+        max-width: 120px;
+        height: auto;
     }
 }
 
