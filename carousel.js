@@ -4,7 +4,8 @@ const nextButton = document.querySelector('.carousel-button.right');
 const images = document.querySelectorAll('.carousel img');
 let index = 0;
 const imageCount = images.length;
-const displayTime = 10000; // 10 seconds per image
+const displayTime = 15000; // 15 seconds per image
+let isAnimating = false; // Flag to prevent rapid clicks
 
 // Ajuste la largeur du carrousel dynamiquement
 function setCarouselWidth() {
@@ -14,14 +15,28 @@ function setCarouselWidth() {
 
 // Function to move to the next slide
 function moveToNext() {
+    if (isAnimating) return; // Ignore if already animating
+    isAnimating = true;
+
     index = (index + 1) % imageCount;
     updateCarousel();
+
+    setTimeout(() => {
+        isAnimating = false; // Allow new actions after the transition ends
+    }, 500); // Same as the CSS transition duration
 }
 
 // Function to move to the previous slide
 function moveToPrev() {
+    if (isAnimating) return; // Ignore if already animating
+    isAnimating = true;
+
     index = (index - 1 + imageCount) % imageCount;
     updateCarousel();
+
+    setTimeout(() => {
+        isAnimating = false; // Allow new actions after the transition ends
+    }, 500); // Same as the CSS transition duration
 }
 
 // Function to update the carousel position
@@ -30,13 +45,21 @@ function updateCarousel() {
     track.style.transform = `translateX(${translateX}%)`;
 }
 
-// Auto-scroll every 10 seconds
-setInterval(moveToNext, displayTime);
+// Auto-scroll every 15 seconds
+const autoScroll = setInterval(moveToNext, displayTime);
 
 // Event listeners for manual navigation
-nextButton.addEventListener('click', moveToNext);
-prevButton.addEventListener('click', moveToPrev);
+nextButton.addEventListener('click', () => {
+    clearInterval(autoScroll); // Reset auto-scroll timer
+    moveToNext();
+});
+
+prevButton.addEventListener('click', () => {
+    clearInterval(autoScroll); // Reset auto-scroll timer
+    moveToPrev();
+});
 
 // Initial setup
 setCarouselWidth();
 window.addEventListener('resize', setCarouselWidth);
+
