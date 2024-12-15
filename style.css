@@ -89,3 +89,12 @@ footer {
 }
 
 
+@media (max-width: 768px) {
+    /*styles pour les écrans de moins de 768px (tablettes et mobiles)*/
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+
