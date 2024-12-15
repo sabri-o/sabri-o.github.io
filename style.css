@@ -96,7 +96,12 @@ footer {
         margin: 0 auto;
     }
     nav a {
-    font-size: 0.7rem;
+        font-size: 0.7rem;
+    }
+
+     iframe {
+         width="280";
+         height="157.5";
     
 }
 
