@@ -63,6 +63,28 @@ footer {
     margin-top: 2rem;
 }
 
+
+.gallery {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-inner {
+  white-space: nowrap;
+  transition: transform 0.5s ease-in-out;
+}
+
+.gallery img {
+  display: inline-block;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* ... autres styles pour positionner les flèches ... */
+}
+
 @media (min-width: 768px) { /* Pour les écrans plus larges que 768px (tablettes et ordinateurs) */
   iframe {
     width: 80%;
