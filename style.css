@@ -71,18 +71,27 @@ footer {
     width: 100%;
     max-width: 900px;
     margin: auto;
-    overflow: hidden;
+    overflow: hidden; /* Masque les débordements */
+}
+
+.carousel-track-container {
+    width: 100%;
+    overflow: hidden; /* Assure qu'aucune partie de l'image suivante n'apparaît */
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    will-change: transform; /* Améliore les performances */
 }
 
 .carousel img {
-    min-width: 100%;
-    height: auto;
-    object-fit: cover;
+    width: 100%; /* Chaque image occupe 100% de l'espace du conteneur */
+    flex-shrink: 0; /* Empêche les images de rétrécir */
+    object-fit: cover; /* Les images s'adaptent sans déformation */
+    height: 400px; /* Ajuste selon ton design, fixe ou auto */
+    border: 3px solid #0b3d2e; /* Ajoute une bordure pour harmoniser avec le thème */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Navigation Arrows */
@@ -106,6 +115,7 @@ footer {
 .carousel-button.right {
     right: 10px;
 }
+
 
 
 
