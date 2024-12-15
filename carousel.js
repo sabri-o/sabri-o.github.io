@@ -2,12 +2,16 @@ const track = document.getElementById('carouselTrack');
 const prevButton = document.querySelector('.carousel-button.left');
 const nextButton = document.querySelector('.carousel-button.right');
 const images = document.querySelectorAll('.carousel img');
-let index = 0;
+let index = 0; // Current index of the carousel
 const imageCount = images.length;
 const displayTime = 15000; // 15 seconds per image
-let isAnimating = false; // Flag to prevent rapid clicks
+const transitionTime = 500; // 500ms for CSS transition
+let autoScroll; // To hold the setInterval instance
 
-// Ajuste la largeur du carrousel dynamiquement
+// Prevent multiple clicks during transition
+let isAnimating = false;
+
+// Function to set carousel width dynamically
 function setCarouselWidth() {
     const trackWidth = images.length * 100;
     track.style.width = `${trackWidth}%`;
@@ -15,51 +19,58 @@ function setCarouselWidth() {
 
 // Function to move to the next slide
 function moveToNext() {
-    if (isAnimating) return; // Ignore if already animating
+    if (isAnimating) return; // Prevent rapid interactions
     isAnimating = true;
 
-    index = (index + 1) % imageCount;
+    index = (index + 1) % imageCount; // Increment index, loop back to 0 if at the end
     updateCarousel();
 
-    setTimeout(() => {
-        isAnimating = false; // Allow new actions after the transition ends
-    }, 500); // Same as the CSS transition duration
+    setTimeout(() => (isAnimating = false), transitionTime); // Reset animation flag after transition
 }
 
 // Function to move to the previous slide
 function moveToPrev() {
-    if (isAnimating) return; // Ignore if already animating
+    if (isAnimating) return; // Prevent rapid interactions
     isAnimating = true;
 
-    index = (index - 1 + imageCount) % imageCount;
+    index = (index - 1 + imageCount) % imageCount; // Decrement index, loop back to last if at the start
     updateCarousel();
 
-    setTimeout(() => {
-        isAnimating = false; // Allow new actions after the transition ends
-    }, 500); // Same as the CSS transition duration
+    setTimeout(() => (isAnimating = false), transitionTime); // Reset animation flag after transition
 }
 
 // Function to update the carousel position
 function updateCarousel() {
-    const translateX = -index * 100;
-    track.style.transform = `translateX(${translateX}%)`;
+    const translateX = -index * 100; // Calculate the new position
+    track.style.transform = `translateX(${translateX}%)`; // Move the track
 }
 
-// Auto-scroll every 15 seconds
-const autoScroll = setInterval(moveToNext, displayTime);
+// Function to start the auto-scroll
+function startAutoScroll() {
+    autoScroll = setInterval(moveToNext, displayTime); // Auto-scroll every displayTime milliseconds
+}
+
+// Function to stop the auto-scroll (when manually interacting)
+function stopAutoScroll() {
+    clearInterval(autoScroll); // Stop the interval
+}
 
 // Event listeners for manual navigation
 nextButton.addEventListener('click', () => {
-    clearInterval(autoScroll); // Reset auto-scroll timer
+    stopAutoScroll(); // Pause auto-scroll
     moveToNext();
+    startAutoScroll(); // Restart auto-scroll
 });
 
 prevButton.addEventListener('click', () => {
-    clearInterval(autoScroll); // Reset auto-scroll timer
+    stopAutoScroll(); // Pause auto-scroll
     moveToPrev();
+    startAutoScroll(); // Restart auto-scroll
 });
 
 // Initial setup
 setCarouselWidth();
-window.addEventListener('resize', setCarouselWidth);
+window.addEventListener('resize', setCarouselWidth); // Recalculate width on window resize
 
+// Start auto-scroll
+startAutoScroll();
