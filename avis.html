@@ -6,7 +6,54 @@
     <title>Avis - Merkez Al 'Ouloum</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="javascript.js"></script>
+    <style>
+        /* Style spécifique pour la page avis */
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 0 10px;
+            flex-shrink: 0;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .slider-controls button {
+            background-color: rgba(0, 61, 46, 0.8);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        @media screen and (max-width: 768px) {
+            .slider img {
+                max-width: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,28 +70,74 @@
     </nav>
 
     <div class="container">
-        <h2>Nos Avis</h2>
+        <section>
+            <h2>Avis des Étudiants</h2>
+            <p>Découvrez les témoignages et les retours des étudiants ayant suivi nos cours :</p>
+        </section>
 
-        <div class="gallery">
-          <div class="gallery-inner">
-            <a href="https://ibb.co/6D63jsY"><img src="https://i.ibb.co/mhQLfzJ/avis0.jpg" alt="avis0" border="0"></a>
-            <a href="https://ibb.co/47dFMnx"><img src="https://i.ibb.co/wRsdCF1/avis1.jpg" alt="avis1" border="0"></a>
-            <a href="https://ibb.co/4Z6J5S9"><img src="https://i.ibb.co/QF2X1Hz/avis2.jpg" alt="avis2" border="0"></a>
-            <a href="https://ibb.co/VYL7LZJ"><img src="https://i.ibb.co/23FDFQW/avis3.jpg" alt="avis3" border="0"></a>
-            <a href="https://ibb.co/Xj9tMvK"><img src="https://i.ibb.co/YP6hwq1/avis4.jpg" alt="avis4" border="0"></a>
-            <a href="https://ibb.co/hZP1Cn8"><img src="https://i.ibb.co/dLdJ73K/avis5.jpg" alt="avis5" border="0"></a>
-            <a href="https://ibb.co/jTTzr5x"><img src="https://i.ibb.co/PNNM6Yb/avis6.jpg" alt="avis6" border="0"></a>
-            <a href="https://ibb.co/R0g55sv"><img src="https://i.ibb.co/DC1qqvV/avis7.jpg" alt="avis7" border="0"></a>
-            <a href="https://ibb.co/WK0jy4Q"><img src="https://i.ibb.co/SvcGn42/avis8.jpg" alt="avis8" border="0"></a>
-          </div>
-          <button class="prev">&#10094;</button>
-          <button class="next">&#10095;</button>
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <img src="image1.jpg" alt="Avis 1">
+                <img src="image2.jpg" alt="Avis 2">
+                <img src="image3.jpg" alt="Avis 3">
+                <img src="image4.jpg" alt="Avis 4">
+                <img src="image5.jpg" alt="Avis 5">
+            </div>
+            <div class="slider-controls">
+                <button id="prevBtn">&#10094;</button>
+                <button id="nextBtn">&#10095;</button>
+            </div>
         </div>
+    </div>
 
     </div>
 
     <footer>
         <p>&copy; 2024 Merkez Al 'Ouloum | Tous droits réservés</p>
     </footer>
+
+
+     <script>
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let index = 0;
+
+        function moveSlider() {
+            slider.style.transform = `translateX(${-index * 320}px)`; // Adjust for image width
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (index < slider.children.length - 1) {
+                index++;
+            } else {
+                index = 0; // Loop back to the start
+            }
+            moveSlider();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+            } else {
+                index = slider.children.length - 1; // Loop to the end
+            }
+            moveSlider();
+        });
+
+          // Auto slide every 3 seconds
+        setInterval(() => {
+            if (index < slider.children.length - 1) {
+                index++;
+            } else {
+                index = 0;
+            }
+            moveSlider();
+        }, 3000);
+    </script>
+
+    
+
+    
 </body>
 </html>
