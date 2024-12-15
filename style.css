@@ -92,9 +92,12 @@ footer {
 @media (max-width: 768px) {
     /*styles pour les écrans de moins de 768px (tablettes et mobiles)*/
     .container {
-        width: 70%;
+        width: 90%;
         margin: 0 auto;
     }
+    nav a {
+    font-size: 0.7rem;
+    
 }
 
 
