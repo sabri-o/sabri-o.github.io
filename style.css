@@ -93,6 +93,13 @@ footer {
     margin: 1rem 0;
     font-size: 2.8rem;
   }
+
+  h2 {
+    font-size: 2.4rem;
+    text-align: center;
+    color: #58a396;
+    margin-bottom: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -113,6 +120,13 @@ footer {
     header h1 {
         margin: 1rem 0;
         font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        text-align: center;
+        color: #58a396;
+        margin-bottom: 1rem;
     }
 }
 
