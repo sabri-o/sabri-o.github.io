@@ -4,143 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avis - Merkez Al 'Ouloum</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Style spécifique pour la page avis */
-        .slider-container {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            margin: 2rem 0;
-        }
-
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slider img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin: 0 10px;
-            flex-shrink: 0;
-        }
-
-        .slider-controls {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            pointer-events: none;
-        }
-
-        .slider-controls button {
-            background-color: rgba(0, 61, 46, 0.8);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            pointer-events: auto;
-        }
-
-        @media screen and (max-width: 768px) {
-            .slider img {
-                max-width: 200px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <a href="https://ibb.co/7S1VChm"><img src="https://i.ibb.co/0nGZ25b/logo-Merkez.jpg" alt="logo-Merkez" border="0"></a>
+        <img src="logoMerkez.jpg" alt="Logo Merkez Al 'Ouloum">
+        <h1>Merkez Al 'Ouloum</h1>
     </header>
-
+    
     <nav>
         <a href="index.html">Accueil</a>
         <a href="enseignant.html">Enseignant</a>
         <a href="cursus.html">Cursus</a>
         <a href="tarifs.html">Tarifs</a>
         <a href="inscription.html">Inscription</a>
+        <a href="avis.html">Avis</a>
         <a href="contact.html">Contact</a>
     </nav>
 
     <div class="container">
         <section>
-            <h2>Avis des Étudiants</h2>
-            <p>Découvrez les retours des étudiants ayant suivi nos cours :</p>
+            <h2>Les Avis des Étudiants</h2>
+            <div class="carousel">
+                <button class="carousel-button left">&#8249;</button>
+                <div class="carousel-track" id="carouselTrack">
+                    <img src="image1.jpg" alt="Avis 1">
+                    <img src="image2.jpg" alt="Avis 2">
+                    <img src="image3.jpg" alt="Avis 3">
+                    <img src="image4.jpg" alt="Avis 4">
+                    <img src="image5.jpg" alt="Avis 5">
+                </div>
+                <button class="carousel-button right">&#8250;</button>
+            </div>
         </section>
-
-        <div class="slider-container">
-            <div class="slider" id="slider">
-                <a href="https://ibb.co/47dFMnx"><img src="https://i.ibb.co/wRsdCF1/avis1.jpg" alt="avis1" border="0"></a>
-                <a href="https://ibb.co/4Z6J5S9"><img src="https://i.ibb.co/QF2X1Hz/avis2.jpg" alt="avis2" border="0"></a>
-                <a href="https://ibb.co/VYL7LZJ"><img src="https://i.ibb.co/23FDFQW/avis3.jpg" alt="avis3" border="0"></a>
-                <a href="https://ibb.co/Xj9tMvK"><img src="https://i.ibb.co/YP6hwq1/avis4.jpg" alt="avis4" border="0"></a>
-                <a href="https://ibb.co/hZP1Cn8"><img src="https://i.ibb.co/dLdJ73K/avis5.jpg" alt="avis5" border="0"></a>
-                <a href="https://ibb.co/jTTzr5x"><img src="https://i.ibb.co/PNNM6Yb/avis6.jpg" alt="avis6" border="0"></a>
-                <a href="https://ibb.co/R0g55sv"><img src="https://i.ibb.co/DC1qqvV/avis7.jpg" alt="avis7" border="0"></a>
-                <a href="https://ibb.co/WK0jy4Q"><img src="https://i.ibb.co/SvcGn42/avis8.jpg" alt="avis8" border="0"></a>
-            </div>
-            <div class="slider-controls">
-                <button id="prevBtn">&#10094;</button>
-                <button id="nextBtn">&#10095;</button>
-            </div>
-        </div>
-    </div>
-
     </div>
 
     <footer>
         <p>&copy; 2024 Merkez Al 'Ouloum | Tous droits réservés</p>
     </footer>
 
-
-     <script>
-        const slider = document.getElementById('slider');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const prevButton = document.querySelector('.carousel-button.left');
+        const nextButton = document.querySelector('.carousel-button.right');
+        const images = document.querySelectorAll('.carousel img');
         let index = 0;
+        const imageCount = images.length;
+        const displayTime = 10000; // 10 seconds per image
 
-        function moveSlider() {
-            slider.style.transform = `translateX(${-index * 320}px)`; // Adjust for image width
+        // Function to move to the next slide
+        function moveToNext() {
+            index = (index + 1) % imageCount;
+            updateCarousel();
         }
 
-        nextBtn.addEventListener('click', () => {
-            if (index < slider.children.length - 1) {
-                index++;
-            } else {
-                index = 0; // Loop back to the start
-            }
-            moveSlider();
-        });
+        // Function to move to the previous slide
+        function moveToPrev() {
+            index = (index - 1 + imageCount) % imageCount;
+            updateCarousel();
+        }
 
-        prevBtn.addEventListener('click', () => {
-            if (index > 0) {
-                index--;
-            } else {
-                index = slider.children.length - 1; // Loop to the end
-            }
-            moveSlider();
-        });
+        // Function to update the carousel position
+        function updateCarousel() {
+            const translateX = -index * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+        }
 
-          // Auto slide every 3 seconds
-        setInterval(() => {
-            if (index < slider.children.length - 1) {
-                index++;
-            } else {
-                index = 0;
-            }
-            moveSlider();
-        }, 3000);
+        // Auto-scroll every 10 seconds
+        setInterval(moveToNext, displayTime);
+
+        // Event listeners for manual navigation
+        nextButton.addEventListener('click', moveToNext);
+        prevButton.addEventListener('click', moveToPrev);
     </script>
-
-    
-
-    
 </body>
 </html>
