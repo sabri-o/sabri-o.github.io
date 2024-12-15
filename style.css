@@ -72,7 +72,7 @@ p, li {
     padding: 0.8rem 1.5rem;
     text-decoration: none;
     border-radius: 5px;
-    margin: 1.5rem auto 0 auto;
+    margin: 1.5rem auto 0 auto; /* Centre horizontalement */
     text-align: center;
 }
 
@@ -87,3 +87,5 @@ footer {
     padding: 1.5rem;
     margin-top: 2rem;
 }
+
+
