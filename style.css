@@ -1,40 +1,45 @@
-/* Styles principaux */
-body {
+/* Reset et base */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Amiri', serif;
     background-color: #121212;
     color: #f8f9fa;
+    line-height: 1.6;
 }
 
 header {
     background-color: #0b3d2e;
-    color: white;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 1rem;
 }
 
 header img {
-    max-width: 100px;
+    max-width: 80px;
     height: auto;
+    margin-bottom: 0.5rem;
 }
 
 header h1 {
-    margin: 1rem 0;
-    font-size: 2.8rem;
+    font-size: 2rem;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
     background-color: #0f5132;
-    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 nav a:hover {
@@ -45,7 +50,7 @@ nav a:hover {
     max-width: 1100px;
     margin: 2rem auto;
     padding: 0 1rem;
-    text-align: center; /* Pour centrer les contenus si nécessaire */
+    text-align: center;
 }
 
 section {
@@ -53,16 +58,13 @@ section {
 }
 
 h2 {
-    font-size: 2.4rem;
-    text-align: center;
     color: #58a396;
     margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
 p, li {
     font-size: 1.2rem;
-    line-height: 1.8;
-    text-align: center;
 }
 
 .button {
@@ -71,19 +73,4 @@ p, li {
     color: white;
     padding: 0.8rem 1.5rem;
     text-decoration: none;
-    border-radius: 5px;
-    margin: 1.5rem auto 0 auto;
-    text-align: center;
-}
-
-.button:hover {
-    background-color: #58a396;
-}
-
-footer {
-    background-color: #0b3d2e;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 2rem;
-}
+    border-radius:
