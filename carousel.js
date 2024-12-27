@@ -4,71 +4,59 @@ const nextButton = document.querySelector('.carousel-button.right');
 const images = document.querySelectorAll('.carousel img');
 const imageCount = images.length;
 const displayTime = 10000; // 10 seconds per image
-const transitionTime = 500; // 500ms for CSS transition
 let index = 0; // Current index of the carousel
 let autoScroll; // To store the auto-scroll interval
-
-// Prevent overlapping animations
-let isAnimating = false;
+let isAnimating = false; // Prevent fast multiple clicks
 
 // Function to update the carousel position
 function updateCarousel() {
-    const translateX = -index * 100; // Calculate the new position in %
-    track.style.transform = `translateX(${translateX}%)`; // Apply the transform
+    track.style.transform = `translateX(-${index * 100}%)`;
 }
 
 // Function to move to the next slide
 function moveToNext() {
-    if (isAnimating) return; // Prevent overlapping animations
+    if (isAnimating) return;
     isAnimating = true;
 
-    index = (index + 1) % imageCount; // Loop back to the first image after the last
+    index = (index + 1) % imageCount;
     updateCarousel();
 
-    setTimeout(() => (isAnimating = false), transitionTime); // Unlock animations after transition
+    setTimeout(() => (isAnimating = false), 500); // Unlock after transition
 }
 
 // Function to move to the previous slide
 function moveToPrev() {
-    if (isAnimating) return; // Prevent overlapping animations
+    if (isAnimating) return;
     isAnimating = true;
 
-    index = (index - 1 + imageCount) % imageCount; // Loop back to the last image from the first
+    index = (index - 1 + imageCount) % imageCount;
     updateCarousel();
 
-    setTimeout(() => (isAnimating = false), transitionTime); // Unlock animations after transition
+    setTimeout(() => (isAnimating = false), 500); // Unlock after transition
 }
 
-// Function to start auto-scroll
+// Auto-scroll every 10 seconds
 function startAutoScroll() {
-    autoScroll = setInterval(moveToNext, displayTime); // Automatically move to next image every 10 seconds
+    autoScroll = setInterval(moveToNext, displayTime);
 }
 
-// Function to stop auto-scroll
+// Stop auto-scroll
 function stopAutoScroll() {
-    clearInterval(autoScroll); // Stop the auto-scroll interval
+    clearInterval(autoScroll);
 }
 
-// Event listeners for navigation buttons
+// Event listeners
 nextButton.addEventListener('click', () => {
-    stopAutoScroll(); // Pause auto-scroll
-    moveToNext(); // Move to the next image
-    startAutoScroll(); // Restart auto-scroll
+    stopAutoScroll();
+    moveToNext();
+    startAutoScroll();
 });
 
 prevButton.addEventListener('click', () => {
-    stopAutoScroll(); // Pause auto-scroll
-    moveToPrev(); // Move to the previous image
-    startAutoScroll(); // Restart auto-scroll
+    stopAutoScroll();
+    moveToPrev();
+    startAutoScroll();
 });
 
-// Set the width of the carousel dynamically
-function setCarouselWidth() {
-    const trackWidth = imageCount * 100;
-    track.style.width = `${trackWidth}%`;
-}
-
-// Initialize carousel width and auto-scroll
-setCarouselWidth();
-window.addEventListener('resize', setCarouselWidth); // Adjust width on window resize
-startAutoScroll(); // Start auto-scroll on page load
+// Initialize
+startAutoScroll();
