@@ -1,13 +1,13 @@
 /* Styles principaux */
 body {
     margin: 0;
-    font-family: 'Amiri', serif;
-    background-color: #121212;
+    font-family: 'Montserrat', sans-serif;
+    background-color:#0d2a00;
     color: #f8f9fa;
 }
 
 header {
-    background-color: #0b3d2e;
+    background-color: #000000;
     color: white;
     text-align: center;
     padding: 0.25rem;
@@ -16,18 +16,23 @@ header {
 nav {
     display: flex;
     justify-content: center;
-    background-color: #0f5132;
+    background-color: #000000;
     padding: 0.5rem;
+    align-items:center;
 }
 
 nav a {
     color: white;
+    width: 100px; /* Largeur fixe */
     text-decoration: none;
+  
 }
 
 nav a:hover {
-    background-color: #58a396;
+        font-weight: bold; /* Texte en gras au survol */
+
 }
+
 
 .container {
     max-width: 1100px;
@@ -63,6 +68,31 @@ footer {
     margin-top: 2rem;
 }
 
+
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 8%; 
+    height: 8%;
+    margin-left: 275px;
+    margin-right: 45px;
+}
+
+.site-title {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.site-title:hover {
+    color: #007bff; /* Couleur au survol */
+}
 
 
 
@@ -126,7 +156,6 @@ footer {
   h2 {
     font-size: 2.4rem;
     text-align: center;
-    color: #58a396;
     margin-bottom: 1rem;
     }
 
@@ -171,7 +200,6 @@ footer {
     h2 {
         font-size: 1.3rem;
         text-align: center;
-        color: #58a396;
         margin-bottom: 1rem;
     }
 
@@ -193,6 +221,3 @@ footer {
 
     
 }
-
-
-
