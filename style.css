@@ -192,11 +192,38 @@ footer {
         padding: 0.5rem 1rem;
         font-size: 1.2rem;
     }
-  
-  iframe {
-    text-align:center;
-    
-  }
+
+    .avis-container {
+            width: 500px;
+            height: 350px;
+            overflow: hidden;
+            position: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        .avis {
+            position: absolute;
+            width: 100%;
+            animation: defilement 50s linear infinite;
+        }
+
+        @keyframes defilement {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        .avis p {
+            margin: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+
+
+
 }
 
 @media (max-width: 767px) {
