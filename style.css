@@ -101,50 +101,51 @@ footer {
 
 
 
-.carousel {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    overflow: hidden;
-    border: 2px solid #58a396;
-    border-radius: 10px;
-}
 
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+/* Conteneur principal */
+        .avis-container {
+            width: 300px; /* Ajustez la largeur */
+            height: 100px; /* Hauteur pour afficher 1 avis */
+            overflow: hidden; /* Cache tout ce qui dépasse */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
 
-.carousel img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    flex-shrink: 0;
-}
+        /* Conteneur des avis */
+        .avis {
+            display: flex;
+            flex-direction: column; /* Affichage en colonne */
+            position: absolute;
+            animation: defilement-vertical 20s linear infinite; /* Animation continue */
+        }
 
-/* Navigation Arrows */
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    z-index: 10;
-}
+        /* Chaque avis */
+        .avis p {
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            font-size: 16px;
+            line-height: 100px; /* Centrage vertical */
+            height: 100px; /* Même hauteur que le conteneur */
+            box-sizing: border-box;
+        }
 
-.carousel-button.left {
-    left: 10px;
-}
-
-.carousel-button.right {
-    right: 10px;
-}
-
+        /* Animation CSS */
+        @keyframes defilement-vertical {
+            0% { transform: translateY(0); } /* Premier avis */
+            10% { transform: translateY(-100px); } /* Deuxième avis */
+            20% { transform: translateY(-200px); } /* Troisième avis */
+            30% { transform: translateY(-300px); } /* Quatrième avis */
+            40% { transform: translateY(-400px); }
+            50% { transform: translateY(-500px); }
+            60% { transform: translateY(-600px); }
+            70% { transform: translateY(-700px); }
+            80% { transform: translateY(-800px); }
+            90% { transform: translateY(-900px); }
+            100% { transform: translateY(0); } /* Retour au premier avis */
+        }
 
 
 @media (min-width: 768px) { /* Pour les écrans plus larges que 768px (tablettes et ordinateurs) */
@@ -194,10 +195,11 @@ footer {
     }
 
     .avis-container {
-            width: 500px;
-            height: 350px;
+            width: 800px;
+            height: 500px;
             overflow: hidden;
             position: center;
+            margin: auto;
             border: 1px solid #ccc;
             border-radius: 5px;
             background: #f9f9f9;
@@ -205,19 +207,21 @@ footer {
 
         .avis {
             position: absolute;
-            width: 100%;
-            animation: defilement 50s linear infinite;
+            width: 78.5%;
+            animation: defilement 500s linear infinite;
         }
 
         @keyframes defilement {
-            0% { transform: translateY(100%); }
+            0% { transform: translateY(1%); }
             100% { transform: translateY(-100%); }
         }
 
         .avis p {
-            margin: 10px;
+            margin: 100px;
+            color: black;
             text-align: center;
-            font-family: Arial, sans-serif;
+            line-height: 2;
+            font-family: Montserrat, sans-serif;
             font-size: 16px;
         }
 
@@ -271,3 +275,4 @@ footer {
 
     
 }
+
