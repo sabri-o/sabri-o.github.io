@@ -115,9 +115,6 @@ footer {
 }
 
 
-
-
-/* Conteneur principal */
         .avis-container {
             width: 300px; /* Ajustez la largeur */
             height: 100px; /* Hauteur pour afficher 1 avis */
@@ -164,10 +161,6 @@ footer {
 
 
 @media (min-width: 768px) { /* Pour les écrans plus larges que 768px (tablettes et ordinateurs) */
-  iframe {
-    width: 80%;
-    height: 450px;
-  }
 
   header h1 {
     margin: 1rem 0;
@@ -181,7 +174,7 @@ footer {
     }
   
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     text-align: center;
     margin-bottom:50px;
     }
