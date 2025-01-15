@@ -31,6 +31,8 @@ nav a {
 
 nav a:hover {
         font-weight: bold; /* Texte en gras au survol */
+        font-size: 18px;
+        width: 100px; /* Largeur fixe */
 
 }
 
@@ -102,26 +104,14 @@ footer {
 }
 
 
-.site-title {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.5rem;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.site-title:hover {
-    color: #007bff; /* Couleur au survol */
-}
-
-
         .avis-container {
             width: 300px; /* Ajustez la largeur */
             height: 100px; /* Hauteur pour afficher 1 avis */
             overflow: hidden; /* Cache tout ce qui dépasse */
             border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            border-color: 5px;
+            background-color: #000000;
             position: relative;
         }
 
@@ -209,8 +199,9 @@ footer {
             position: center;
             margin: auto;
             border: 1px solid #ccc;
+            border-color: #216302; 
             border-radius: 5px;
-            background: #f9f9f9;
+            background: #000000;
         }
 
         .avis {
@@ -226,7 +217,7 @@ footer {
 
         .avis p {
             margin: 100px;
-            color: black;
+            color: white;
             text-align: center;
             line-height: 2;
             font-family: Montserrat, sans-serif;
@@ -253,11 +244,6 @@ footer {
         width: 100%;
         height: 250px;
     }
-    
-    header h1 {
-        margin: 1rem 0;
-        font-size: 1.7rem;
-    }
 
     h2 {
         font-size: 1.3rem;
@@ -276,11 +262,4 @@ footer {
         height: auto;
     }
 
-    
-    .carousel img {
-        height: 200px;
-    }
-
-    
-}
-
+  
