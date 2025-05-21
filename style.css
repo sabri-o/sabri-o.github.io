@@ -230,14 +230,21 @@ footer {
 }
 
 @media (max-width: 767px) {
-    /*styles pour les écrans de moins de 768px (tablettes et mobiles)*/
+    /* Styles pour les écrans de moins de 768px (tablettes et mobiles) */
     .container {
         width: 90%;
         margin: 0 auto;
     }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
     nav a {
-        font-size: 0.4rem 0.8rem;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        margin: 0.5rem 0;
     }
 
     iframe {
@@ -252,14 +259,30 @@ footer {
     }
 
     p {
-        font-size: 0.7rem;
-        line-height: 1.2;
+        font-size: 0.9rem;
+        line-height: 1.4;
         text-align: center;
+        margin: 0 1rem;
     }
 
     header img {
-        max-width: 120px;
+        max-width: 100px;
         height: auto;
     }
 
-  
+    .avis-container {
+        width: 90%;
+        height: 200px;
+        margin: 1rem auto;
+    }
+
+    .avis p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
