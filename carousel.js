@@ -1,62 +1,77 @@
-const track = document.getElementById('carouselTrack');
-const prevButton = document.querySelector('.carousel-button.left');
-const nextButton = document.querySelector('.carousel-button.right');
-const images = document.querySelectorAll('.carousel img');
-const imageCount = images.length;
-const displayTime = 10000; // 10 seconds per image
-let index = 0; // Current index of the carousel
-let autoScroll; // To store the auto-scroll interval
-let isAnimating = false; // Prevent fast multiple clicks
+console.log("Initialisation du carrousel...");
 
-// Function to update the carousel position
-function updateCarousel() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM entièrement chargé");
+    
+    const carousel = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    
+    if (!carousel || items.length === 0 || !prevBtn || !nextBtn) {
+        console.error("Éléments du carrousel non trouvés");
+        return;
+    }
 
-// Function to move to the next slide
-function moveToNext() {
-    if (isAnimating) return;
-    isAnimating = true;
+    console.log(`Nombre d'avis trouvés: ${items.length}`);
+    
+    let currentIndex = 0;
+    const intervalTime = 5000;
+    let slideInterval;
 
-    index = (index + 1) % imageCount;
-    updateCarousel();
+    function moveToIndex(index) {
+        console.log(`Déplacement vers l'index ${index}`);
+        if (index >= items.length) index = 0;
+        if (index < 0) index = items.length - 1;
+        currentIndex = index;
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 
-    setTimeout(() => (isAnimating = false), 500); // Unlock after transition
-}
+    function nextSlide() {
+        console.log("Défilement automatique vers le suivant");
+        moveToIndex(currentIndex + 1);
+    }
 
-// Function to move to the previous slide
-function moveToPrev() {
-    if (isAnimating) return;
-    isAnimating = true;
+    function startInterval() {
+        console.log("Démarrage du défilement automatique");
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
 
-    index = (index - 1 + imageCount) % imageCount;
-    updateCarousel();
+    function resetInterval() {
+        console.log("Réinitialisation du timer");
+        clearInterval(slideInterval);
+        startInterval();
+    }
 
-    setTimeout(() => (isAnimating = false), 500); // Unlock after transition
-}
+    // Initialisation
+    console.log("Initialisation des écouteurs d'événements");
+    prevBtn.addEventListener('click', () => {
+        console.log("Clic sur précédent");
+        moveToIndex(currentIndex - 1);
+        resetInterval();
+    });
 
-// Auto-scroll every 10 seconds
-function startAutoScroll() {
-    autoScroll = setInterval(moveToNext, displayTime);
-}
+    nextBtn.addEventListener('click', () => {
+        console.log("Clic sur suivant");
+        moveToIndex(currentIndex + 1);
+        resetInterval();
+    });
 
-// Stop auto-scroll
-function stopAutoScroll() {
-    clearInterval(autoScroll);
-}
+    // Démarrer le carrousel
+    console.log("Démarrage initial du carrousel");
+    moveToIndex(0);
+    startInterval();
 
-// Event listeners
-nextButton.addEventListener('click', () => {
-    stopAutoScroll();
-    moveToNext();
-    startAutoScroll();
+    // Pause au survol
+    carousel.addEventListener('mouseenter', () => {
+        console.log("Survol - pause du défilement");
+        clearInterval(slideInterval);
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        console.log("Fin de survol - reprise du défilement");
+        resetInterval();
+    });
 });
 
-prevButton.addEventListener('click', () => {
-    stopAutoScroll();
-    moveToPrev();
-    startAutoScroll();
-});
-
-// Initialize
-startAutoScroll();
+console.log("Script carousel.js chargé");
