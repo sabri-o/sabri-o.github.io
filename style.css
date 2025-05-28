@@ -288,8 +288,32 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .carousel {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0;
+    }
+    
+    .carousel-inner {
+        display: flex;
+        flex-wrap: nowrap;
+        scroll-snap-type: x mandatory;
+        min-height: auto;
+    }
+    
+    .carousel-item {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        padding: 0;
+    }
+    
     .carousel-image {
         max-height: 60vh;
+    }
+    
+    .carousel-control {
+        display: none;
     }
 }
 
@@ -470,3 +494,4 @@ footer {
         padding-right: 0;
     }
 }
+

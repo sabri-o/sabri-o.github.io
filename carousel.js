@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.carousel-item');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
+    let touchStartX = 0;
+    let touchEndX = 0;
     
     if (!carousel || items.length === 0 || !prevBtn || !nextBtn) {
         console.error("Éléments du carrousel non trouvés");
