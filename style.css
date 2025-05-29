@@ -436,8 +436,8 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(44, 62, 80, 0.08);
     padding: 30px 40px;
-    max-width: 400px;
-    width: 100%;
+    width: 80%;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -452,16 +452,18 @@ footer {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100%;
 }
 
 .contact-list li {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 15px;
     margin-bottom: 18px;
     font-size: 1.1rem;
-    text-align: center;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0 5%;
 }
 
 .contact-icon {
@@ -475,7 +477,11 @@ footer {
 .contact-list a {
     color: #3498db;
     text-decoration: none;
-    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+    flex-grow: 1;
 }
 
 .contact-list a:hover {

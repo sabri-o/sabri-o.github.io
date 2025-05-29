@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(`Nombre d'avis trouvés: ${items.length}`);
     
     let currentIndex = 0;
-    const intervalTime = 5000;
+    const intervalTime = 10000;
     let slideInterval;
 
     function moveToIndex(index) {
