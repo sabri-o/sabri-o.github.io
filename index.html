@@ -1,76 +1,333 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="LavoVert propose le nettoyage automobile écologique à domicile à Feyzin, Vénissieux, Saint-Fons et Lyon sud. Réservez votre lavage auto sans eau, intérieur et extérieur." />
-    <meta name="keywords" content="lavage auto à domicile, nettoyage voiture intérieur, sans eau, Feyzin, écologique, detailing auto, Lyon, Vénissieux, Saint-Fons" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://sabri-o.github.io/" />
-    <title>Nettoyage auto écologique à domicile Feyzin | LavoVert</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <!-- Open Graph -->
-    <meta property="og:title" content="Nettoyage auto écologique à domicile Feyzin | LavoVert" />
-    <meta property="og:description" content="LavoVert - Nettoyage automobile éco-responsable à domicile à Feyzin et ses environs." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sabri-o.github.io/" />
-    <meta property="og:image" content="https://sabri-o.github.io/og-image.jpg" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Nettoyage auto écologique à domicile Feyzin | LavoVert" />
-    <meta name="twitter:description" content="LavoVert - Nettoyage automobile éco-responsable à domicile à Feyzin et ses environs." />
-    <meta name="twitter:image" content="https://sabri-o.github.io/og-image.jpg" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LavoVert — Propreté intérieure, respect extérieur</title>
+  <meta name="description" content="LavoVert - Nettoyage auto écologique à domicile (Feyzin, Vénissieux, Saint-Fons, Lyon). Intérieur, injection-extraction, detailing. Réservez via WhatsApp ou par mail." />
+  <meta name="keywords" content="nettoyage voiture Feyzin, nettoyage intérieur voiture écologique, detailing intérieur Lyon, lavage auto à domicile, nettoyage voiture sans eau" />
+  <link rel="icon" href="logo-lavovert.png" />
+  <style>
+    /* -----------------------
+       LAVOVERT - DEMO STYLES
+       Single-file demo (index.html)
+       To split: move <style> content to style.css and <script> to script.js
+       ----------------------- */
+    :root{
+      --green:#1fa65a; /* primary */
+      --blue:#0077cc;
+      --dark:#0b0b0b;
+      --muted:#f5f7f8;
+      --glass: rgba(255,255,255,0.06);
+      --card: #ffffff;
+      --max-w:1200px;
+      --radius:18px;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#fbfdfe 0%, #f3f8fb 100%); color:var(--dark);}
+    a{color:inherit}
+    .container{max-width:var(--max-w);margin:0 auto;padding:28px}
+
+    /* HERO */
+    header.hero{position:relative;height:100vh;min-height:720px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    /* background video */
+    header.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.05) brightness(0.6)}
+    header.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,11,11,0.2), rgba(255,255,255,0.05));pointer-events:none}
+
+    header .hero-inner{position:relative;z-index:5;text-align:left;padding:48px;border-radius:22px;backdrop-filter: blur(6px);max-width:1100px;margin:0 20px}
+    .brand{display:flex;align-items:center;gap:18px}
+    .logo-blob{width:68px;height:68px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--blue));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px;box-shadow:0 8px 30px rgba(10,50,30,0.15)}
+    h1{font-size:48px;line-height:1.02;margin:14px 0;color:var(--card)}
+    h1 .accent{color:var(--green)}
+    p.lead{font-size:18px;color:rgba(0, 0, 0, 0.803);margin:12px 0 18px}
+
+    .cta-row{display:flex;gap:14px;align-items:center}
+    .btn{display:inline-block;padding:14px 20px;border-radius:12px;background:var(--green);color:#fff;text-decoration:none;font-weight:600;box-shadow:0 8px 24px rgba(31,166,90,0.18)}
+    .btn.secondary{background:transparent;color:var(grey);border:1px solid rgba(255, 255, 255, 0.12); color:var(--blue)}
+
+    /* bubbles */
+    .bubbles{position:absolute;inset:0;pointer-events:none;z-index:3}
+    .bubble{position:absolute;border-radius:50%;opacity:0.12;mix-blend-mode:screen}
+
+    /* Sections */
+    main{position:relative;z-index:2}
+    section{padding:80px 0}
+    section .inner{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+    /* Why choose */
+    .why{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+    .why .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.98));padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(20,30,40,0.06)}
+    .icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;color:white;margin-bottom:10px}
+
+    /* Before/After */
+    .before-after{background:linear-gradient(180deg,#ffffff 0,#fbfdfe 100%);padding:28px;border-radius:16px}
+    .ba-stage{position:relative;height:420px;border-radius:12px;overflow:hidden;background:#ddd}
+    .ba-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--green),var(--blue));transform:translateX(-50%);display:flex;align-items:center;justify-content:center;z-index:6}
+    .ba-circle{width:52px;height:52px;border-radius:50%;background:white;border:3px solid rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* FAQ accordion */
+    .faq .q{background:linear-gradient(180deg,#fff,#fff);padding:14px;border-radius:12px;margin-bottom:10px;box-shadow:0 6px 18px rgba(30,40,50,0.04)}
+    .q h3{margin:0;font-size:16px;display:flex;justify-content:space-between;align-items:center}
+    .q .a{margin-top:10px;display:none;color:#333}
+
+    /* Blog preview */
+    .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .post{background:#fff;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(20,30,40,0.04)}
+    .post h4{margin:8px 0}
+
+    /* Floating whatsapp */
+    .whatsapp{position:fixed;right:20px;bottom:20px;background:linear-gradient(135deg,var(--green),var(--blue));color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,0,0,0.18);z-index:999}
+
+    /* Footer */
+    footer{padding:28px 0;background:transparent}
+
+    /* Responsive */
+    @media (max-width:900px){
+      h1{font-size:36px}
+      .why{grid-template-columns:1fr}
+      .posts{grid-template-columns:1fr}
+      .ba-stage{height:300px}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>LavoVert - Nettoyage auto écologique à domicile à Feyzin</h1>
-            <p>Nettoyage automobile éco-responsable à domicile – Feyzin, Vénissieux, Saint-Fons, Lyon sud</p>
-            <nav>
-                <a href="#prestations">Prestations</a>
-                <a href="#reservation">Réserver</a>
-                <a href="#contact">Contact</a>
-            </nav>
+  <!-- HERO with background video (free-to-use placeholder) -->
+  <header class="hero" id="home">
+    <video autoplay muted loop playsinline id="bgv">
+      <!-- Source : placeholder - replace with your own video later -->
+      <source src="https://cdn.coverr.co/videos/coverr-car-cleaning-1596?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" type="video/mp4">
+    </video>
+
+    <div class="bubbles" aria-hidden="true">
+      <div class="bubble" style="width:300px;height:300px;left:8%;top:10%;background:linear-gradient(135deg,rgba(31,166,90,0.9),rgba(0,119,204,0.9));opacity:0.06"></div>
+      <div class="bubble" style="width:180px;height:180px;right:6%;top:22%;background:linear-gradient(135deg,rgba(0,119,204,0.9),rgba(31,166,90,0.9));opacity:0.06"></div>
+      <div class="bubble" style="width:120px;height:120px;left:30%;bottom:10%;background:linear-gradient(135deg,rgba(31,166,90,0.95),rgba(0,119,204,0.95));opacity:0.05"></div>
+    </div>
+
+    <div class="hero-inner container" style="max-width:1100px">
+      <div class="brand">
+        <div class="logo-blob">
+          <img src="logo-lavovert.jpeg" alt="Logo LavoVert" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
         </div>
-    </header>
+        <div style="color:var(--card)"><strong style="font-size:18px">LavoVert</strong><div style="font-size:12px;opacity:0.9">Nettoyage auto écologique à domicile</div></div>
+      </div>
 
-    <main>
-        <section id="prestations">
-            <h2>Nos Services de lavage auto écologique</h2>
-            <ul>
-                <li><strong>Formule Intérieur Express</strong> : aspiration, soufflage, vitres – <em>à partir de 50€</em></li>
-                <li><strong>Formule Intérieur Confort</strong> : sièges, plastiques, vitres – <em>à partir de 80€</em></li>
-                <li><strong>Formule Complète</strong> : intérieur + extérieur sans eau – <em>à partir de 110€</em></li>
-            </ul>
-            <p>Zone couverte : Feyzin, Vénissieux, Saint-Fons, Lyon sud</p>
-        </section>
+    <h1><span class="accent">Propreté</span> <span style="color:#ffffff">intérieure,<br/> respect extérieur.</span></h1>
+      <p class="lead">Nettoyage intérieur précis, injection-extraction, vitres et plastiques — service mobile à Feyzin, Vénissieux, Saint-Fons et Lyon.</p>
 
-        <section id="reservation">
-            <h2>Réserver un lavage automobile à domicile</h2>
-            <p>Choisissez un créneau pour votre prochain nettoyage :</p>
-            <p><a class="btn" href="https://calendly.com/ton-lien" target="_blank" rel="noopener">Réserver maintenant</a></p>
-            <p>Ou réservez via WhatsApp : <a class="whatsapp" href="https://wa.me/33XXXXXXXXX" rel="noopener">07 XX XX XX XX</a></p>
-        </section>
+      <div class="cta-row">
+        <a class="btn" id="bookBtn" href="#reservation">Réserver maintenant</a>
+        <a class="btn secondary" href="#why">Pourquoi LavoVert</a>
+      </div>
+    </div>
+  </header>
 
-        <section id="contact">
-            <h2>Contactez LavoVert</h2>
-            <address>
-                <ul>
-                    <li><strong>Tél :</strong> <a href="tel:+337XXXXXXXXX">07 XX XX XX XX</a></li>
-                    <li><strong>Email :</strong> <a href="mailto:contact@lavovert.fr">contact@lavovert.fr</a></li>
-                    <li><strong>Adresse de référence :</strong> Feyzin</li>
-                    <li><strong>Google My Business :</strong> <a href="#">Voir la fiche</a></li>
-                </ul>
-            </address>
-        </section>
-    </main>
+  <main>
+    <!-- WHY -->
+    <section id="why">
+      <div class="inner container">
+        <h2>Pourquoi choisir <span style="color:var(--green)">LavoVert</span> ?</h2>
+        <div class="why" style="margin-top:18px">
+          <div class="cards">
+            <div class="card">
+              <div class="icon" style="background:linear-gradient(135deg,var(--green),#46c27a)">🌱</div>
+              <h3>Éco-responsable</h3>
+              <p>Nettoyage sans rinçage et produits choisis pour limiter l'impact environnemental.</p>
+            </div>
+            <div class="card">
+              <div class="icon" style="background:linear-gradient(135deg,var(--blue),#1f8cd6)">🔧</div>
+              <h3>Matériel pro</h3>
+              <p>Injection-extraction, aspirateur puissant et produits Koch Chemie pour un résultat durable.</p>
+            </div>
+            <div class="card">
+              <div class="icon" style="background:linear-gradient(135deg,var(--green),var(--blue))">⏱️</div>
+              <h3>Service mobile</h3>
+              <p>Nous venons chez vous : confort et gain de temps sans compromis sur la qualité.</p>
+            </div>
+            <div class="card">
+              <div class="icon" style="background:linear-gradient(135deg,#6bd3a6,#63b6e6)">✨</div>
+              <h3>Fini le détail</h3>
+              <p>Perfection et hygiène intérieure, pour votre bien-être et celui de vos proches.</p>
+            </div>
+          </div>
 
-    <footer>
-        <div class="container">
-            <p>Microentreprise LavoVert - TVA non applicable, art. 293 B du CGI</p>
-            <p>SIRET : En cours</p>
+          <div style="padding-left:18px">
+            <div style="background:linear-gradient(180deg, #fff, #fbfeff);padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(10,30,40,0.04)">
+              <h3>Nos formules</h3>
+              <ul>
+                <li><strong>Intérieur Express</strong> — aspiration + vitres (à partir de 50€)</li>
+                <li><strong>Intérieur Confort</strong> — aspiration + vitres + extraction + plastiques (à partir de 70€)</li>
+                <li><strong>Intérieur Premium</strong> — aspiration + vitres + extraction + plastiques + contours de portières + finitions en détail (à partir de 100€)</li>
+              </ul>
+              <p style="font-size:13px;color:#444;margin-top:8px">Zone : Feyzin, Vénissieux, Saint-Fons, Lyon.</p>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <!-- BEFORE / AFTER -->
+    <section id="before-after">
+      <div class="inner container">
+        <h2>Avant / Après</h2>
+        <p>Glisse la poignée pour voir la transformation après notre nettoyage.</p>
+        <div class="before-after" style="margin-top:16px">
+          <div class="ba-stage" id="baStage">
+            <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc" alt="Avant" style="z-index:2">
+            <div id="afterMask" style="position:absolute;left:0;top:0;bottom:0;width:50%;overflow:hidden;z-index:4">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=def" alt="Après" style="position:absolute;inset:0;width:150%;height:100%;object-fit:cover;transform:translateX(-25%)">
+            </div>
+            <div class="ba-handle" id="baHandle"><div class="ba-circle">⇆</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="inner container">
+        <h2>Questions fréquentes</h2>
+        <div class="faq" style="margin-top:18px">
+          <div class="q"><h3>Combien de temps dure un nettoyage intérieur complet ? <span>▼</span></h3><div class="a">Selon l'état et le véhicule, comptez entre <strong>2 et 5 heures</strong> pour un nettoyage approfondi.</div></div>
+          <div class="q"><h3>Quels types de véhicules acceptez-vous ? <span>▼</span></h3><div class="a">Nous intervenons sur la plupart des véhicules : citadines, berlines, SUV, utilitaires...</div></div>
+          <div class="q"><h3>Faut-il vider la voiture avant l'arrivée ? <span>▼</span></h3><div class="a">Oui, merci d'enlever objets personnels pour un nettoyage optimal.</div></div>
+          <div class="q"><h3>Comment réserver ? <span>▼</span></h3><div class="a">Réservation via <strong>WhatsApp</strong> ou directement en ligne via notre formulaire de réservation.</div></div>
+          <div class="q"><h3>Est-ce que la pluie pose un problème ? <span>▼</span></h3><div class="a">Non — nous ne traitons que l'intérieur ; la pluie n'empêche pas notre intervention.</div></div>
+          <div class="q"><h3>Quels produits utilisez-vous ? <span>▼</span></h3><div class="a">Koch Chemie, ainsi que des solutions maison (vinaigre, liquide vaisselle écologique) pour certaines surfaces.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG PREVIEW 
+    <section id="blog">
+      <div class="inner container">
+        <h2>Conseils & Articles</h2>
+        <p>Nos premiers articles pour bien entretenir l'intérieur de votre véhicule.</p>
+        <div class="posts" style="margin-top:18px">
+          <article class="post">
+            <h4>5 raisons de choisir un nettoyage intérieur écologique à Feyzin</h4>
+            <p>Découvrez pourquoi un nettoyage sans rinçage et des produits adaptés protègent votre santé et la planète.</p>
+            <a href="#" style="font-weight:600">Lire l'article →</a>
+          </article>
+
+          <article class="post">
+            <h4>Pourquoi le nettoyage sans eau est l'avenir du lavage auto</h4>
+            <p>Moins d'eau, moins de déchets : un procédé efficace pour un résultat pro.</p>
+            <a href="#" style="font-weight:600">Lire l'article →</a>
+          </article>
+
+          <article class="post">
+            <h4>Les avantages de l'injection-extraction</h4>
+            <p>Explications et bénéfices pour les tissus et tapis de votre véhicule.</p>
+            <a href="#" style="font-weight:600">Lire l'article →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- RESERVATION -->
+    <section id="reservation">
+      <div class="inner container">
+        <h2>Réserver un lavage</h2>
+        <p>Réservez en quelques clics via WhatsApp ou par mail.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+            <a class="btn" id="reserveOnline" href="https://wa.me/33760749838">Réserver via WhatsApp</a>
+            <a class="btn secondary" href="mailto:lavovert@gmail.com?subject=Réservation%20LavoVert">Réserver par mail</a>
+        </div>
+        <p style="margin-top:12px;font-size:13px;color:#555">Paiement en virement instantané ou via Paypal. TVA non applicable — microentreprise (SIRET en cours).</p>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp" href="https://wa.me/33760749838" aria-label="Contacter LavoVert sur WhatsApp">💬</a>
+
+<footer style="background:#f4f4f4; padding: 20px; text-align: center; font-size: 0.9rem;">
+  <p>&copy; 2025 LavoVert - Tous droits réservés</p>
+  <p>
+    <a href="mentions-legales.html" style="color:#333; text-decoration: underline;">Mentions légales</a> |
+    <a href="politique-confidentialite.html" style="color:#333; text-decoration: underline;">Politique de confidentialité</a>
+  </p>
+</footer>
+
+
+  <script>
+    /* -----------------------
+       DEMO JS: interactions & small animations
+    ----------------------- */
+    // Simple parallax for hero
+    (function(){
+      const hero = document.querySelector('.hero');
+      window.addEventListener('scroll',()=>{
+        const s = window.scrollY/3;
+        hero.style.transform = `translateY(${s}px)`;
+      });
+    })();
+
+    // FAQ accordion
+    document.querySelectorAll('.faq .q').forEach(q=>{
+      q.addEventListener('click',()=>{
+        const a=q.querySelector('.a');
+        const open = a.style.display === 'block';
+        document.querySelectorAll('.faq .a').forEach(x=>x.style.display='none');
+        if(!open) a.style.display='block';
+      });
+    });
+
+    // Before/After drag
+    (function(){
+      const ba = document.getElementById('baStage');
+      const mask = document.getElementById('afterMask');
+      const handle = document.getElementById('baHandle');
+      let dragging=false;
+      const startX = e=> (e.touches?e.touches[0].clientX:e.clientX);
+      const move = x=>{
+        const rect = ba.getBoundingClientRect();
+        let pct = (x - rect.left) / rect.width;
+        pct = Math.max(0, Math.min(1, pct));
+        mask.style.width = (pct*100)+'%';
+        handle.style.left = (pct*100)+'%';
+      }
+      handle.addEventListener('mousedown',()=>dragging=true);
+      window.addEventListener('mouseup',()=>dragging=false);
+      window.addEventListener('mousemove',e=>{ if(dragging) move(e.clientX)});
+      // mobile
+      handle.addEventListener('touchstart',()=>dragging=true);
+      window.addEventListener('touchend',()=>dragging=false);
+      window.addEventListener('touchmove',e=>{ if(dragging) move(e.touches[0].clientX)});
+      // click to move
+      ba.addEventListener('click',e=> move(startX(e)));
+    })();
+
+    // Simple reveal on scroll
+    (function(){
+      const obs = new IntersectionObserver(entries=>{
+        entries.forEach(en=>{
+          if(en.isIntersecting) en.target.style.opacity=1;
+        });
+      },{threshold:0.15});
+      document.querySelectorAll('section').forEach(s=>{s.style.opacity=0;s.style.transform='translateY(12px)';obs.observe(s)});
+    })();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        const id = this.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    // Small micro-interaction: animate hero text on load
+    window.addEventListener('load',()=>{
+      const h1 = document.querySelector('.hero-inner h1');
+      h1.style.transform='translateY(0)';
+      h1.style.opacity=1;
+    });
+  </script>
 </body>
 </html>
