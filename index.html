@@ -29,6 +29,38 @@
     a{color:inherit}
     .container{max-width:var(--max-w);margin:0 auto;padding:28px}
 
+    /* --- Topbar minimaliste --- */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 40px;
+      background: var(--glass);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 9999;
+      gap: 18px;
+    }
+    .topbar a.social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px; height: 24px;
+      color: var(--dark);
+      transition: color 0.3s ease;
+    }
+    .topbar a.social-link:hover {
+      color: var(--green);
+    }
+    /* Reset margin for header to compensate for fixed topbar */
+    header.hero {
+      padding-top: 40px; /* hauteur topbar */
+      min-height: calc(100vh - 40px);
+    }
+    
     /* HERO */
     header.hero{position:relative;height:100vh;min-height:720px;display:flex;align-items:center;justify-content:center;overflow:hidden}
     /* background video */
@@ -94,6 +126,31 @@
   </style>
 </head>
 <body>
+  
+  <!-- Topbar réseaux sociaux -->
+  <nav class="topbar" aria-label="Liens réseaux sociaux">
+    <a href="https://www.instagram.com/toncompte" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37a4 4 0 1 1-4.54-4.54 4 4 0 0 1 4.54 4.54z"></path>
+        <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+      </svg>
+    </a>
+
+    <a href="https://www.tiktok.com/@toncompte" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 2v14a4 4 0 1 1-4-4h4V2h2v14a4 4 0 1 1 4 4h-4v-6h-2z"/>
+      </svg>
+    </a>
+
+    <a href="https://www.facebook.com/toncompte" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+      </svg>
+    </a>
+  </nav>
+
+  
   <!-- HERO with background video (free-to-use placeholder) -->
   <header class="hero" id="home">
     <video autoplay muted loop playsinline id="bgv">
@@ -149,8 +206,8 @@
             </div>
             <div class="card">
               <div class="icon" style="background:linear-gradient(135deg,#6bd3a6,#63b6e6)">✨</div>
-              <h3>Fini le détail</h3>
-              <p>Perfection et hygiène intérieure, pour votre bien-être et celui de vos proches.</p>
+              <h3>Art du détail</h3>
+              <p>Propreté et hygiène intérieure, pour votre bien-être et celui de vos proches.</p>
             </div>
           </div>
 
