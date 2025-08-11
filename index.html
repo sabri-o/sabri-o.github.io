@@ -114,10 +114,16 @@
 
     /* Before/After */
     .before-after{background:linear-gradient(180deg,#ffffff 0,#fbfdfe 100%);padding:28px;border-radius:16px}
-    .ba-stage{position:relative;height:420px;border-radius:12px;overflow:hidden;background:#ddd}
-    .ba-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--green),var(--blue));transform:translateX(-50%);display:flex;align-items:center;justify-content:center;z-index:10;cursor:ew-resize;}
-    .ba-circle{width:52px;height:52px;border-radius:50%;background:white;border:3px solid rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .ba-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px; /* Adjust the gap as needed */
+    }
+    .ba-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
 
     /* FAQ accordion */
     .faq .q{background:linear-gradient(180deg,#fff,#fff);padding:14px;border-radius:12px;margin-bottom:10px;box-shadow:0 6px 18px rgba(30,40,50,0.04)}
@@ -255,14 +261,32 @@
     <section id="before-after">
       <div class="inner container">
         <h2>Avant / Après</h2>
-        <p>Glisse la poignée pour voir la transformation après notre nettoyage.</p>
+        <p>Découvrez la transformation après notre nettoyage.</p>
         <div class="before-after" style="margin-top:16px">
-          <div class="ba-stage" id="baStage">
-            <img src="nettoyage-auto-passager-avant.jpg" alt="Avant" style="z-index:2">
-            <div id="afterMask" style="position:absolute;left:0;top:0;bottom:0;width:50%;overflow:hidden;z-index:4">
-              <img src="nettoyage-auto-passager-apres.jpg" alt="Après" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="ba-container">
+            <div>
+              <img src="nettoyage-auto-passager-avant.jpeg" alt="Avant">
             </div>
-            <div class="ba-handle" id="baHandle"><div class="ba-circle">⇆</div></div>
+            <div>
+              <img src="nettoyage-auto-passager-apres.jpeg" alt="Après">
+            </div>
+          </div>
+          <div class="ba-container">
+            <div>
+              <img src="nettoyage-auto-pedales-avant.jpeg" alt="Avant">
+            </div>
+            <div>
+              <img src="nettoyage-auto-pedales-apres.jpeg" alt="Après">
+            </div>
+          </div>
+          
+          <div class="ba-container">
+            <div>
+              <img src="nettoyage-auto-portiere1-avant.jpeg" alt="Avant">
+            </div>
+            <div>
+              <img src="nettoyage-auto-portiere1-apres.jpeg" alt="Après">
+            </div>
           </div>
         </div>
       </div>
@@ -335,29 +359,29 @@
     });
 
     // Before/After drag
-    (function(){
-      const ba = document.getElementById('baStage');
-      const mask = document.getElementById('afterMask');
-      const handle = document.getElementById('baHandle');
-      let dragging=false;
-      const startX = e=> (e.touches?e.touches[0].clientX:e.clientX);
-      const move = x=>{
-        const rect = ba.getBoundingClientRect();
-        let pct = (x - rect.left) / rect.width;
-        pct = Math.max(0, Math.min(1, pct));
-        mask.style.width = (pct*100)+'%';
-        handle.style.left = (pct*100)+'%';
-      }
-      handle.addEventListener('mousedown',()=>dragging=true);
-      window.addEventListener('mouseup',()=>dragging=false);
-      window.addEventListener('mousemove',e=>{ if(dragging) move(e.clientX)});
-      // mobile
-      handle.addEventListener('touchstart',()=>dragging=true);
-      window.addEventListener('touchend',()=>dragging=false);
-      window.addEventListener('touchmove',e=>{ if(dragging) move(e.touches[0].clientX)});
-      // click to move
-      ba.addEventListener('click',e=> move(startX(e)));
-    })();
+    // (function(){
+    //   const ba = document.getElementById('baStage');
+    //   const mask = document.getElementById('afterMask');
+    //   const handle = document.getElementById('baHandle');
+    //   let dragging=false;
+    //   const startX = e=> (e.touches?e.touches[0].clientX:e.clientX);
+    //   const move = x=>{
+    //     const rect = ba.getBoundingClientRect();
+    //     let pct = (x - rect.left) / rect.width;
+    //     pct = Math.max(0, Math.min(1, pct));
+    //     mask.style.width = (pct*100)+'%';
+    //     handle.style.left = (pct*100)+'%';
+    //   }
+    //   handle.addEventListener('mousedown',()=>dragging=true);
+    //   window.addEventListener('mouseup',()=>dragging=false);
+    //   window.addEventListener('mousemove',e=>{ if(dragging) move(e.clientX)});
+    //   // mobile
+    //   handle.addEventListener('touchstart',()=>dragging=true);
+    //   window.addEventListener('touchend',()=>dragging=false);
+    //   window.addEventListener('touchmove',e=>{ if(dragging) move(e.touches[0].clientX)});
+    //   // click to move
+    //   ba.addEventListener('click',e=> move(startX(e)));
+    // })();
 
     // Simple reveal on scroll
     (function(){
