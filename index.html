@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LavoVert — Propreté intérieure, respect extérieur</title>
-  <meta name="description" content="LavoVert - Nettoyage auto écologique à domicile (Feyzin, Vénissieux, Saint-Fons, Lyon). Intérieur, injection-extraction, detailing. Réservez via WhatsApp ou pa[...]
+  <meta name="description" content="LavoVert - Nettoyage auto écologique à domicile (Feyzin, Vénissieux, Saint-Fons, Lyon). Intérieur, injection-extraction, detailing. Réservez via WhatsApp ou pa[...]">
   <meta name="keywords" content="nettoyage voiture Feyzin, nettoyage intérieur voiture écologique, detailing intérieur Lyon, lavage auto à domicile, nettoyage voiture sans eau" />
   <link rel="icon" href="logo-lavovert.png" />
   <style>
@@ -33,10 +33,19 @@
       backdrop-filter: saturate(180%) blur(12px);
       border-bottom: 1px solid rgba(0,0,0,0.1);
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between; /* Sépare gauche et droite */
       align-items: center;
       padding: 0 20px;
       z-index: 9999;
+      gap: 18px;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+    }
+    .topbar-right {
+      display: flex;
+      align-items: center;
       gap: 18px;
     }
     .topbar .logo-favicon {
@@ -46,7 +55,6 @@
       height: 32px;
       width: 32px;
       margin-right: 18px;
-      margin-left: 0;
       cursor: pointer;
     }
     .topbar .logo-favicon img {
@@ -108,7 +116,7 @@
     .before-after{background:linear-gradient(180deg,#ffffff 0,#fbfdfe 100%);padding:28px;border-radius:16px}
     .ba-stage{position:relative;height:420px;border-radius:12px;overflow:hidden;background:#ddd}
     .ba-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--green),var(--blue));transform:translateX(-50%);display:flex;align-items:center;justify-content:center;z-index:5}
+    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--green),var(--blue));transform:translateX(-50%);display:flex;align-items:center;justify-content:center;z-index:10;cursor:ew-resize;}
     .ba-circle{width:52px;height:52px;border-radius:50%;background:white;border:3px solid rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;font-weight:700}
 
     /* FAQ accordion */
@@ -122,7 +130,7 @@
     .post h4{margin:8px 0}
 
     /* Floating whatsapp */
-    .whatsapp{position:fixed;right:20px;bottom:20px;background:linear-gradient(135deg,var(--green),var(--blue));color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 2px 16px rgba(31,166,90,0.12);z-index:999;}
+    .whatsapp{position:fixed;right:20px;bottom:20px;background:linear-gradient(135deg,var(--green),var(--blue));color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 8px 24px rgba(31,166,90,0.18);z-index:99999;}
     .whatsapp:hover{background:linear-gradient(135deg,var(--blue),var(--green));}
 
     /* Footer */
@@ -134,33 +142,43 @@
       .why{grid-template-columns:1fr}
       .posts{grid-template-columns:1fr}
       .ba-stage{height:300px}
+      .topbar {
+        padding: 0 12px;
+      }
+      .container {
+        padding: 18px;
+      }
     }
   </style>
 </head>
 <body>
   
-  <!-- Topbar réseaux sociaux avec logo à gauche, cliquable vers #home -->
+  <!-- Topbar réseaux sociaux avec logo à gauche et réseaux à droite -->
   <nav class="topbar" aria-label="Liens réseaux sociaux">
-    <a href="#home" class="logo-favicon" style="margin-right:18px;">
-      <img src="logo-lavovert.png" alt="Logo LavoVert Favicon">
-    </a>
-    <a href="https://www.instagram.com/toncompte" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-        <path d="M16 11.37a4 4 0 1 1-4.54-4.54 4 4 0 0 1 4.54 4.54z"></path>
-        <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
-      </svg>
-    </a>
-    <a href="https://www.tiktok.com/@toncompte" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 2v14a4 4 0 1 1-4-4h4V2h2v14a4 4 0 1 1 4 4h-4v-6h-2z"/>
-      </svg>
-    </a>
-    <a href="https://www.facebook.com/toncompte" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-      </svg>
-    </a>
+    <div class="topbar-left">
+      <a href="#home" class="logo-favicon">
+        <img src="logo-lavovert.png" alt="Logo LavoVert Favicon">
+      </a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://www.instagram.com/toncompte" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37a4 4 0 1 1-4.54-4.54 4 4 0 0 1 4.54 4.54z"></path>
+          <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@toncompte" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 2v14a4 4 0 1 1-4-4h4V2h2v14a4 4 0 1 1 4 4h-4v-6h-2z"/>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/toncompte" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+    </div>
   </nav>
 
   <!-- HERO with background video (free-to-use placeholder) -->
