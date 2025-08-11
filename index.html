@@ -4,15 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LavoVert — Propreté intérieure, respect extérieur</title>
-  <meta name="description" content="LavoVert - Nettoyage auto écologique à domicile (Feyzin, Vénissieux, Saint-Fons, Lyon). Intérieur, injection-extraction, detailing. Réservez via WhatsApp ou par mail." />
+  <meta name="description" content="LavoVert - Nettoyage auto écologique à domicile (Feyzin, Vénissieux, Saint-Fons, Lyon). Intérieur, injection-extraction, detailing. Réservez via WhatsApp ou pa[...]
   <meta name="keywords" content="nettoyage voiture Feyzin, nettoyage intérieur voiture écologique, detailing intérieur Lyon, lavage auto à domicile, nettoyage voiture sans eau" />
   <link rel="icon" href="logo-lavovert.png" />
   <style>
-    /* -----------------------
-       LAVOVERT - DEMO STYLES
-       Single-file demo (index.html)
-       To split: move <style> content to style.css and <script> to script.js
-       ----------------------- */
     :root{
       --green:#1fa65a; /* primary */
       --blue:#0077cc;
@@ -44,6 +39,24 @@
       z-index: 9999;
       gap: 18px;
     }
+    .topbar .logo-favicon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      width: 32px;
+      margin-right: 18px;
+      margin-left: 0;
+      cursor: pointer;
+    }
+    .topbar .logo-favicon img {
+      height: 32px;
+      width: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+    }
     .topbar a.social-link {
       display: inline-flex;
       align-items: center;
@@ -55,7 +68,6 @@
     .topbar a.social-link:hover {
       color: var(--green);
     }
-    /* Reset margin for header to compensate for fixed topbar */
     header.hero {
       padding-top: 40px; /* hauteur topbar */
       min-height: calc(100vh - 40px);
@@ -63,13 +75,12 @@
     
     /* HERO */
     header.hero{position:relative;height:100vh;min-height:720px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    /* background video */
     header.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.05) brightness(0.6)}
     header.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,11,11,0.2), rgba(255,255,255,0.05));pointer-events:none}
 
     header .hero-inner{position:relative;z-index:5;text-align:left;padding:48px;border-radius:22px;backdrop-filter: blur(6px);max-width:1100px;margin:0 20px}
     .brand{display:flex;align-items:center;gap:18px}
-    .logo-blob{width:68px;height:68px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--blue));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px;box-shadow:0 8px 30px rgba(10,50,30,0.15)}
+    .logo-blob{width:68px;height:68px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--blue));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;}
     h1{font-size:48px;line-height:1.02;margin:14px 0;color:var(--card)}
     h1 .accent{color:var(--green)}
     p.lead{font-size:18px;color:rgba(0, 0, 0, 0.803);margin:12px 0 18px}
@@ -97,7 +108,7 @@
     .before-after{background:linear-gradient(180deg,#ffffff 0,#fbfdfe 100%);padding:28px;border-radius:16px}
     .ba-stage{position:relative;height:420px;border-radius:12px;overflow:hidden;background:#ddd}
     .ba-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--green),var(--blue));transform:translateX(-50%);display:flex;align-items:center;justify-content:center;z-index:6}
+    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--green),var(--blue));transform:translateX(-50%);display:flex;align-items:center;justify-content:center;z-index:5}
     .ba-circle{width:52px;height:52px;border-radius:50%;background:white;border:3px solid rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;font-weight:700}
 
     /* FAQ accordion */
@@ -111,7 +122,8 @@
     .post h4{margin:8px 0}
 
     /* Floating whatsapp */
-    .whatsapp{position:fixed;right:20px;bottom:20px;background:linear-gradient(135deg,var(--green),var(--blue));color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,0,0,0.18);z-index:999}
+    .whatsapp{position:fixed;right:20px;bottom:20px;background:linear-gradient(135deg,var(--green),var(--blue));color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 2px 16px rgba(31,166,90,0.12);z-index:999;}
+    .whatsapp:hover{background:linear-gradient(135deg,var(--blue),var(--green));}
 
     /* Footer */
     footer{padding:28px 0;background:transparent}
@@ -127,8 +139,11 @@
 </head>
 <body>
   
-  <!-- Topbar réseaux sociaux -->
+  <!-- Topbar réseaux sociaux avec logo à gauche, cliquable vers #home -->
   <nav class="topbar" aria-label="Liens réseaux sociaux">
+    <a href="#home" class="logo-favicon" style="margin-right:18px;">
+      <img src="logo-lavovert.png" alt="Logo LavoVert Favicon">
+    </a>
     <a href="https://www.instagram.com/toncompte" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -136,13 +151,11 @@
         <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
       </svg>
     </a>
-
     <a href="https://www.tiktok.com/@toncompte" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M9 2v14a4 4 0 1 1-4-4h4V2h2v14a4 4 0 1 1 4 4h-4v-6h-2z"/>
       </svg>
     </a>
-
     <a href="https://www.facebook.com/toncompte" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -150,7 +163,6 @@
     </a>
   </nav>
 
-  
   <!-- HERO with background video (free-to-use placeholder) -->
   <header class="hero" id="home">
     <video autoplay muted loop playsinline id="bgv">
@@ -235,7 +247,7 @@
           <div class="ba-stage" id="baStage">
             <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc" alt="Avant" style="z-index:2">
             <div id="afterMask" style="position:absolute;left:0;top:0;bottom:0;width:50%;overflow:hidden;z-index:4">
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=def" alt="Après" style="position:absolute;inset:0;width:150%;height:100%;object-fit:cover;transform:translateX(-25%)">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=def" alt="Après" style="position:absolute;inset:0;width:150%;height:100%;object-fit:cover;">
             </div>
             <div class="ba-handle" id="baHandle"><div class="ba-circle">⇆</div></div>
           </div>
@@ -248,7 +260,7 @@
       <div class="inner container">
         <h2>Questions fréquentes</h2>
         <div class="faq" style="margin-top:18px">
-          <div class="q"><h3>Combien de temps dure un nettoyage intérieur complet ? <span>▼</span></h3><div class="a">Selon l'état et le véhicule, comptez entre <strong>2 et 5 heures</strong> pour un nettoyage approfondi.</div></div>
+          <div class="q"><h3>Combien de temps dure un nettoyage intérieur complet ? <span>▼</span></h3><div class="a">Selon l'état et le véhicule, comptez entre <strong>2 et 5 heures</strong> pour un nettoyage complet.</div></div>
           <div class="q"><h3>Quels types de véhicules acceptez-vous ? <span>▼</span></h3><div class="a">Nous intervenons sur la plupart des véhicules : citadines, berlines, SUV, utilitaires...</div></div>
           <div class="q"><h3>Faut-il vider la voiture avant l'arrivée ? <span>▼</span></h3><div class="a">Oui, merci d'enlever objets personnels pour un nettoyage optimal.</div></div>
           <div class="q"><h3>Comment réserver ? <span>▼</span></h3><div class="a">Réservation via <strong>WhatsApp</strong> ou par mail.</div></div>
@@ -257,34 +269,6 @@
         </div>
       </div>
     </section>
-
-    <!-- BLOG PREVIEW 
-    <section id="blog">
-      <div class="inner container">
-        <h2>Conseils & Articles</h2>
-        <p>Nos premiers articles pour bien entretenir l'intérieur de votre véhicule.</p>
-        <div class="posts" style="margin-top:18px">
-          <article class="post">
-            <h4>5 raisons de choisir un nettoyage intérieur écologique à Feyzin</h4>
-            <p>Découvrez pourquoi un nettoyage sans rinçage et des produits adaptés protègent votre santé et la planète.</p>
-            <a href="#" style="font-weight:600">Lire l'article →</a>
-          </article>
-
-          <article class="post">
-            <h4>Pourquoi le nettoyage sans eau est l'avenir du lavage auto</h4>
-            <p>Moins d'eau, moins de déchets : un procédé efficace pour un résultat pro.</p>
-            <a href="#" style="font-weight:600">Lire l'article →</a>
-          </article>
-
-          <article class="post">
-            <h4>Les avantages de l'injection-extraction</h4>
-            <p>Explications et bénéfices pour les tissus et tapis de votre véhicule.</p>
-            <a href="#" style="font-weight:600">Lire l'article →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-    -->
 
     <!-- RESERVATION -->
     <section id="reservation">
