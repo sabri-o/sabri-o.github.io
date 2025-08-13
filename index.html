@@ -363,123 +363,113 @@
 
 
 
-  <!-- Scripts Google sous consentement RGPD -->
-  <script>
-    // Fonction pour charger Google Analytics et autres scripts Google après consentement
-    function loadGoogleAnalyticsAndGoogleScripts() {
-      // Google Analytics
-      var scriptGA = document.createElement('script');
-      scriptGA.async = true;
-      scriptGA.src = "https://www.googletagmanager.com/gtag/js?id=G-VW3T10TDP5";
-      document.head.appendChild(scriptGA);
+<!-- Scripts Google sous consentement RGPD -->
+<script>
+  // Fonction pour charger Google Analytics et autres scripts Google après consentement
+  function loadGoogleAnalyticsAndGoogleScripts() {
+    // Google Analytics
+    var scriptGA = document.createElement('script');
+    scriptGA.async = true;
+    scriptGA.src = "https://www.googletagmanager.com/gtag/js?id=G-VW3T10TDP5";
+    document.head.appendChild(scriptGA);
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-VW3T10TDP5');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-VW3T10TDP5');
+  }
+
+  // Durée max de consentement : 180 jours
+  var consentMaxAge = 180 * 24 * 60 * 60 * 1000;
+
+  // Lecture consentement
+  var consentData = JSON.parse(localStorage.getItem('lv_cookie_consent_data'));
+  var now = Date.now();
+
+  // Si déjà accepté et non expiré, charger GA
+  if (consentData && consentData.value === 'true' && (now - consentData.date) < consentMaxAge) {
+    loadGoogleAnalyticsAndGoogleScripts();
+  }
+
+  // Cookie Banner Logic RGPD
+  (function(){
+    var banner = document.getElementById('cookie-banner');
+    var acceptBtn = document.getElementById('cookie-accept');
+    var rejectBtn = document.getElementById('cookie-reject');
+
+    // Si déjà répondu et pas expiré, masquer la bannière
+    if (consentData && (now - consentData.date) < consentMaxAge) {
+      banner.style.display = 'none';
     }
-    // Charger seulement si consentement déjà donné
-    if (localStorage.getItem('lv_cookie_consent') === 'true') {
-      loadGoogleAnalyticsAndGoogleScripts();
-    }
 
-    // Cookie Banner Logic RGPD
-    (function(){
-      var banner = document.getElementById('cookie-banner');
-      var acceptBtn = document.getElementById('cookie-accept');
-      var rejectBtn = document.getElementById('cookie-reject');
-      // Si déjà consenti ou refusé, masquer la bannière
-      if (localStorage.getItem('lv_cookie_consent') !== null) {
-        banner.style.display = 'none';
-      }
-      acceptBtn.onclick = function(){
-        localStorage.setItem('lv_cookie_consent','true');
-        banner.style.display = 'none';
-        // Charge Google Analytics et autres scripts Google si pas déjà chargé
-        if (typeof window.gtag === 'undefined') loadGoogleAnalyticsAndGoogleScripts();
-      };
-      rejectBtn.onclick = function(){
-        localStorage.setItem('lv_cookie_consent','false');
-        banner.style.display = 'none';
-      };
-    })();
+    acceptBtn.onclick = function(){
+      localStorage.setItem('lv_cookie_consent_data', JSON.stringify({ value: 'true', date: Date.now() }));
+      banner.style.display = 'none';
+      if (typeof window.gtag === 'undefined') loadGoogleAnalyticsAndGoogleScripts();
+    };
+
+    rejectBtn.onclick = function(){
+      localStorage.setItem('lv_cookie_consent_data', JSON.stringify({ value: 'false', date: Date.now() }));
+      banner.style.display = 'none';
+    };
+  })();
 
 
-    
-    /* -----------------------
-       DEMO JS: interactions & small animations
-    ----------------------- */
-    // Simple parallax for hero
-    (function(){
-      const hero = document.querySelector('.hero');
-      window.addEventListener('scroll',()=>{
-        const s = window.scrollY/3;
-        hero.style.transform = `translateY(${s}px)`;
-      });
-    })();
+  /* -----------------------
+     DEMO JS: interactions & small animations
+  ----------------------- */
 
-    // FAQ accordion
-    document.querySelectorAll('.faq .q').forEach(q=>{
-      q.addEventListener('click',()=>{
-        const a=q.querySelector('.a');
-        const open = a.style.display === 'block';
-        document.querySelectorAll('.faq .a').forEach(x=>x.style.display='none');
-        if(!open) a.style.display='block';
-      });
+  // Simple parallax for hero
+  (function(){
+    const hero = document.querySelector('.hero');
+    window.addEventListener('scroll',()=>{
+      const s = window.scrollY/3;
+      hero.style.transform = `translateY(${s}px)`;
     });
+  })();
 
-    // Before/After drag
-    // (function(){
-    //   const ba = document.getElementById('baStage');
-    //   const mask = document.getElementById('afterMask');
-    //   const handle = document.getElementById('baHandle');
-    //   let dragging=false;
-    //   const startX = e=> (e.touches?e.touches[0].clientX:e.clientX);
-    //   const move = x=>{
-    //     const rect = ba.getBoundingClientRect();
-    //     let pct = (x - rect.left) / rect.width;
-    //     pct = Math.max(0, Math.min(1, pct));
-    //     mask.style.width = (pct*100)+'%';
-    //     handle.style.left = (pct*100)+'%';
-    //   }
-    //   handle.addEventListener('mousedown',()=>dragging=true);
-    //   window.addEventListener('mouseup',()=>dragging=false);
-    //   window.addEventListener('mousemove',e=>{ if(dragging) move(e.clientX)});
-    //   // mobile
-    //   handle.addEventListener('touchstart',()=>dragging=true);
-    //   window.addEventListener('touchend',()=>dragging=false);
-    //   window.addEventListener('touchmove',e=>{ if(dragging) move(e.touches[0].clientX)});
-    //   // click to move
-    //   ba.addEventListener('click',e=> move(startX(e)));
-    // })();
+  // FAQ accordion
+  document.querySelectorAll('.faq .q').forEach(q=>{
+    q.addEventListener('click',()=>{
+      const a=q.querySelector('.a');
+      const open = a.style.display === 'block';
+      document.querySelectorAll('.faq .a').forEach(x=>x.style.display='none');
+      if(!open) a.style.display='block';
+    });
+  });
 
-    // Simple reveal on scroll
-    (function(){
-      const obs = new IntersectionObserver(entries=>{
-        entries.forEach(en=>{
-          if(en.isIntersecting) en.target.style.opacity=1;
-        });
-      },{threshold:0.15});
-      document.querySelectorAll('section').forEach(s=>{s.style.opacity=0;s.style.transform='translateY(12px)';obs.observe(s)});
-    })();
-
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',function(e){
-        e.preventDefault();
-        const id = this.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  // Simple reveal on scroll
+  (function(){
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting) en.target.style.opacity=1;
       });
+    },{threshold:0.15});
+    document.querySelectorAll('section').forEach(s=>{
+      s.style.opacity=0;
+      s.style.transform='translateY(12px)';
+      obs.observe(s);
     });
+  })();
 
-    // Small micro-interaction: animate hero text on load
-    window.addEventListener('load',()=>{
-      const h1 = document.querySelector('.hero-inner h1');
-      h1.style.transform='translateY(0)';
-      h1.style.opacity=1;
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      const id = this.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
     });
-  </script>
+  });
+
+  // Animate hero text on load
+  window.addEventListener('load',()=>{
+    const h1 = document.querySelector('.hero-inner h1');
+    h1.style.transform='translateY(0)';
+    h1.style.opacity=1;
+  });
+</script>
+
 </body>
 </html>
