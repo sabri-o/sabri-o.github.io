@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW3T10TDP5"></script>
+  <!-- Google tag (gtag.js) - déclenché uniquement après consentement -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-VW3T10TDP5');
+    // Fonction pour charger GA après consentement
+    function loadGoogleAnalytics() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-VW3T10TDP5";
+      document.head.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-VW3T10TDP5');
+    }
+    // Vérifie le consentement au chargement
+    if (localStorage.getItem('lv_cookie_consent') === 'true') {
+      loadGoogleAnalytics();
+    }
   </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -167,7 +177,21 @@
   </style>
 </head>
 <body>
-  
+
+      <!-- Bannière cookies RGPD -->
+  <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#fff;border-top:1px solid #e4e4e4;box-shadow:0 -2px 8px rgba(0,0,0,0.08);padding:18px 12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+    <div style="font-size:15px;color:#222;">
+      Ce site utilise Google Analytics pour analyser le trafic.<br>
+      Les cookies ne seront déposés qu’avec votre consentement. <a href="politique-confidentialite.html" style="color:#0077cc;text-decoration:underline;">En savoir plus</a>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px;">
+      <button id="cookie-accept" style="background:var(--green);color:#fff;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;">Accepter</button>
+      <button id="cookie-reject" style="background:#f5f7f8;color:#333;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;">Refuser</button>
+    </div>
+  </div>
+
+
+    
   <!-- Topbar réseaux sociaux avec logo à gauche et réseaux à droite -->
   <nav class="topbar" aria-label="Liens réseaux sociaux">
     <div class="topbar-left">
@@ -343,16 +367,38 @@
   </a>
 
 
-<footer style="background:#f4f4f4; padding: 20px; text-align: center; font-size: 0.9rem;">
-  <p>&copy; 2025 LavoVert - Tous droits réservés</p>
-  <p>
-    <a href="mentions-legales.html" style="color:#333; text-decoration: underline;">Mentions légales</a> |
-    <a href="politique-confidentialite.html" style="color:#333; text-decoration: underline;">Politique de confidentialité</a>
-  </p>
-</footer>
+
+  <footer style="background:#f4f4f4; padding: 20px; text-align: center; font-size: 0.9rem;">
+    <p>&copy; 2025 LavoVert - Tous droits réservés</p>
+    <p>
+      <a href="mentions-legales.html" style="color:#333; text-decoration: underline;">Mentions légales</a> |
+      <a href="politique-confidentialite.html" style="color:#333; text-decoration: underline;">Politique de confidentialité</a>
+    </p>
+  </footer>
 
 
   <script>
+    // Cookie Banner Logic RGPD
+    (function(){
+      var banner = document.getElementById('cookie-banner');
+      var acceptBtn = document.getElementById('cookie-accept');
+      var rejectBtn = document.getElementById('cookie-reject');
+      // Si déjà consenti ou refusé, masquer la bannière
+      if (localStorage.getItem('lv_cookie_consent') !== null) {
+        banner.style.display = 'none';
+      }
+      acceptBtn.onclick = function(){
+        localStorage.setItem('lv_cookie_consent','true');
+        banner.style.display = 'none';
+        // Charge GA si pas déjà chargé
+        if (typeof window.gtag === 'undefined') loadGoogleAnalytics();
+      };
+      rejectBtn.onclick = function(){
+        localStorage.setItem('lv_cookie_consent','false');
+        banner.style.display = 'none';
+      };
+    })();
+
     /* -----------------------
        DEMO JS: interactions & small animations
     ----------------------- */
