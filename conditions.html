@@ -1,48 +1,149 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Conditions d'utilisation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conditions d’utilisation — LavoVert</title>
+  <link rel="icon" href="logo-lavovert.png" />
+  <style>
+    :root{
+      --green:#1fa65a;
+      --blue:#0077cc;
+      --dark:#0b0b0b;
+      --muted:#f5f7f8;
+      --glass: rgba(255,255,255,0.06);
+      --card: #ffffff;
+      --max-w:1200px;
+      --radius:18px;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#fbfdfe 0%, #f3f8fb 100%); color:var(--dark);}
+    a{color:inherit}
+    .container{max-width:var(--max-w);margin:0 auto;padding:28px}
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 40px;
+      background: var(--glass);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 9999;
+      gap: 18px;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+    }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .topbar .logo-favicon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      width: 32px;
+      margin-right: 18px;
+      cursor: pointer;
+    }
+    .topbar .logo-favicon img {
+      height: 32px;
+      width: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+    }
+    .topbar a.social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px; height: 24px;
+      color: var(--dark);
+      transition: color 0.3s ease;
+    }
+    .topbar a.social-link:hover {
+      color: var(--green);
+    }
+    main {
+      padding-top: 60px;
+      min-height: 70vh;
+    }
+    footer{padding:28px 0;background:transparent}
+    @media (max-width:900px){
+      .topbar { padding: 0 12px; }
+      .container { padding: 18px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Conditions d'utilisation</h1>
-  <p>Date de dernière mise à jour : 13 août 2025</p>
-
-  <h2>1. Présentation du site</h2>
-  <p>
-    Le site <strong>lavovert.fr</strong></strong> est édité par Sabri O. <br>
-    Contact : <a href="mailto:lavovert@gmail.com">lavovert@gmail.com</a>
-  </p>
-
-  <h2>2. Acceptation des conditions</h2>
-  <p>
-    En accédant et en utilisant ce site, vous acceptez pleinement et sans réserve les présentes conditions d’utilisation.
-  </p>
-
-  <h2>3. Propriété intellectuelle</h2>
-  <p>
-    Le contenu du site (textes, images, code source...) est protégé par le droit d’auteur. Toute reproduction ou utilisation sans autorisation est interdite.
-  </p>
-
-  <h2>4. Protection des données personnelles</h2>
-  <p>
-    Ce site utilise Google Analytics pour analyser la fréquentation. Les données collectées sont anonymisées. Vous pouvez consulter la <a href="votre-lien-politique-confidentialite.html">Politique de confidentialité</a> pour plus d’informations.
-  </p>
-
-  <h2>5. Responsabilité</h2>
-  <p>
-    L’éditeur du site ne peut être tenu responsable des dommages directs ou indirects résultant de l’utilisation du site.
-  </p>
-
-  <h2>6. Modification des conditions</h2>
-  <p>
-    Les présentes conditions peuvent être modifiées à tout moment. Les utilisateurs sont invités à les consulter régulièrement.
-  </p>
-
-  <h2>7. Loi applicable</h2>
-  <p>
-    Les présentes conditions sont soumises à la loi française. En cas de litige, les tribunaux français seront compétents.
-  </p>
+  <nav class="topbar" aria-label="Liens réseaux sociaux">
+    <div class="topbar-left">
+      <a href="index.html#home" class="logo-favicon">
+        <img src="logo-lavovert.png" alt="Logo LavoVert Favicon">
+      </a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://www.instagram.com/lavovert" target="_blank" rel="noopener" aria-label="Instagram" class="social-link" style="display:inline-block; width:24px; height:24px;">
+        <img src="Instagram_Glyph_Gradient.png" alt="Instagram" style="width:100%; height:100%; object-fit: contain;">
+      </a>
+      <a href="https://www.tiktok.com/@lavovert" target="_blank" rel="noopener" aria-label="TikTok" class="social-link" style="display:inline-block; width:24px; height:24px;">
+        <img src="TikTok_Icon_Black_Circle.png" alt="TikTok" style="width:100%; height:100%; object-fit: contain;">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61578604119824" target="_blank" rel="noopener" aria-label="Facebook" class="social-link" style="display:inline-block; width:24px; height:24px;">
+        <img src="Facebook_Logo_Primary.png" alt="Facebook" style="width:100%; height:100%; object-fit: contain;">
+      </a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h1>Conditions d’utilisation</h1>
+      <p>Date de dernière mise à jour : 13 août 2025</p>
+      <h2>1. Présentation du site</h2>
+      <p>
+        Le site <strong>lavovert.fr</strong> est édité par Sabri OTMANI (LavoVert).<br>
+        Contact : <a href="mailto:lavovert@gmail.com">lavovert@gmail.com</a>
+      </p>
+      <h2>2. Acceptation des conditions</h2>
+      <p>
+        En accédant et en utilisant ce site, vous acceptez pleinement et sans réserve les présentes conditions d’utilisation.
+      </p>
+      <h2>3. Propriété intellectuelle</h2>
+      <p>
+        Le contenu du site (textes, images, code source...) est protégé par le droit d’auteur. Toute reproduction ou utilisation sans autorisation est interdite.
+      </p>
+      <h2>4. Protection des données personnelles</h2>
+      <p>
+        Ce site utilise Google Analytics pour analyser la fréquentation. Les données collectées sont anonymisées. Vous pouvez consulter la <a href="politique-confidentialite.html">Politique de confidentialité</a>.
+      </p>
+      <h2>5. Responsabilité</h2>
+      <p>
+        L’éditeur du site ne peut être tenu responsable des dommages directs ou indirects résultant de l’utilisation du site.
+      </p>
+      <h2>6. Modification des conditions</h2>
+      <p>
+        Les présentes conditions peuvent être modifiées à tout moment. Les utilisateurs sont invités à les consulter régulièrement.
+      </p>
+      <h2>7. Loi applicable</h2>
+      <p>
+        Les présentes conditions sont soumises à la loi française. En cas de litige, les tribunaux français seront compétents.
+      </p>
+    </div>
+  </main>
+  <footer style="background:#f4f4f4; padding: 20px; text-align: center; font-size: 0.9rem;">
+    <p>&copy; 2025 LavoVert - Tous droits réservés</p>
+    <p>
+      <a href="mentions-legales.html" style="color:#333; text-decoration: underline;">Mentions légales</a> |
+      <a href="politique-confidentialite.html" style="color:#333; text-decoration: underline;">Politique de confidentialité</a>
+      <a href="conditions.html" style="color:#333; text-decoration: underline;">Conditions d'utilisation</a>
+    </p>
+  </footer>
 </body>
 </html>
