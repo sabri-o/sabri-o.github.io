@@ -1,31 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google tag (gtag.js) - déclenché uniquement après consentement -->
-  <script>
-    // Fonction pour charger GA après consentement
-    function loadGoogleAnalytics() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-VW3T10TDP5";
-      document.head.appendChild(script);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-VW3T10TDP5');
-    }
-    // Vérifie le consentement au chargement
-    if (localStorage.getItem('lv_cookie_consent') === 'true') {
-      loadGoogleAnalytics();
-    }
-  </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LavoVert — Propreté intérieure, respect extérieur</title>
   <meta name="description" content="LavoVert - Nettoyage auto écologique à domicile (Feyzin, Vénissieux, Saint-Fons, Lyon). Intérieur, injection-extraction, detailing. Réservez via WhatsApp ou pa[...]">
   <meta name="keywords" content="nettoyage voiture Feyzin, nettoyage intérieur voiture écologique, detailing intérieur Lyon, lavage auto à domicile, nettoyage voiture sans eau" />
   <link rel="icon" href="logo-lavovert.png" />
+  <!-- Google Search Console meta (ne pose pas de cookie, peut rester ici) -->
+  <meta name="google-site-verification" content="TON_CODE_VERIF" />
+
   <style>
     :root{
       --green:#1fa65a; /* primary */
@@ -178,8 +162,8 @@
 </head>
 <body>
 
-      <!-- Bannière cookies RGPD -->
-  <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#fff;border-top:1px solid #e4e4e4;box-shadow:0 -2px 8px rgba(0,0,0,0.08);padding:18px 12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+  <!-- Bannière cookies RGPD -->
+  <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#fff;border-top:1px solid #e4e4e4;box-shadow:0 -2px 8px rgba(0,0,0,0.08);padding:18px 12px;display:flex;">
     <div style="font-size:15px;color:#222;">
       Ce site utilise Google Analytics pour analyser le trafic.<br>
       Les cookies ne seront déposés qu’avec votre consentement. <a href="politique-confidentialite.html" style="color:#0077cc;text-decoration:underline;">En savoir plus</a>
@@ -378,7 +362,28 @@
   </footer>
 
 
+
+  <!-- Scripts Google sous consentement RGPD -->
   <script>
+    // Fonction pour charger Google Analytics et autres scripts Google après consentement
+    function loadGoogleAnalyticsAndGoogleScripts() {
+      // Google Analytics
+      var scriptGA = document.createElement('script');
+      scriptGA.async = true;
+      scriptGA.src = "https://www.googletagmanager.com/gtag/js?id=G-VW3T10TDP5";
+      document.head.appendChild(scriptGA);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-VW3T10TDP5');
+    }
+    // Charger seulement si consentement déjà donné
+    if (localStorage.getItem('lv_cookie_consent') === 'true') {
+      loadGoogleAnalyticsAndGoogleScripts();
+    }
+
     // Cookie Banner Logic RGPD
     (function(){
       var banner = document.getElementById('cookie-banner');
@@ -391,8 +396,8 @@
       acceptBtn.onclick = function(){
         localStorage.setItem('lv_cookie_consent','true');
         banner.style.display = 'none';
-        // Charge GA si pas déjà chargé
-        if (typeof window.gtag === 'undefined') loadGoogleAnalytics();
+        // Charge Google Analytics et autres scripts Google si pas déjà chargé
+        if (typeof window.gtag === 'undefined') loadGoogleAnalyticsAndGoogleScripts();
       };
       rejectBtn.onclick = function(){
         localStorage.setItem('lv_cookie_consent','false');
@@ -400,6 +405,8 @@
       };
     })();
 
+
+    
     /* -----------------------
        DEMO JS: interactions & small animations
     ----------------------- */
